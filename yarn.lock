@@ -2803,7 +2803,7 @@
 
 "mongoose@*", "mongoose@^5.11.16":
   "integrity" "sha512-qmolyGAskPuq0Xr3j2Tjm9jwRccGGnLRWtTuyRvYBZoyItajwIoQdetJH8oVzs3N7aZK/GKZ82xV/t97suF8Pg=="
-  "resolved" "https://registry.npmjs.org/mongoose/-/mongoose-5.11.16.tgz"
+  "resolved" "https://registry.yarnpkg.com/mongoose/-/mongoose-5.11.16.tgz"
   "version" "5.11.16"
   dependencies:
     "@types/mongodb" "^3.5.27"
