@@ -1,5 +1,5 @@
 import express from 'express';
-import { ApolloServer, gql } from 'apollo-server-express';
+import { ApolloServer } from 'apollo-server-express';
 import mongoose from 'mongoose';
 import { resolvers } from './resolvers.js';
 import { typeDefs } from './typeDefs.js';
