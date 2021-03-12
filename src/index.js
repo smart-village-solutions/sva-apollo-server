@@ -17,11 +17,13 @@ const startServer = async () => {
   await mongoose.connect('mongodb://localhost:27017/test', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    keepAlive: true
+    keepAlive: true,
   });
 
   app.listen({ port: 4000 }, () =>
-    console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
+    console.log(
+      `🚀 Server ready at http://localhost:4000${server.graphqlPath}`,
+    ),
   );
 };
 
