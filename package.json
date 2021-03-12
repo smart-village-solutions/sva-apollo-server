@@ -12,10 +12,6 @@
   "author": "Philipp Wilimzig, Smart Village Solutions SVS GmbH",
   "license": "GPLv3",
   "devDependencies": {
-    "@babel/cli": "^7.12.16",
-    "@babel/core": "^7.12.16",
-    "@babel/node": "^7.12.16",
-    "@babel/preset-env": "^7.12.16",
     "@types/node": "^14.14.34",
     "@typescript-eslint/eslint-plugin": "^4.17.0",
     "@typescript-eslint/parser": "^4.17.0",
@@ -29,7 +25,6 @@
   },
   "dependencies": {
     "apollo-server-express": "^2.21.0",
-    "esm": "^3.2.25",
     "express": "^4.17.1",
     "graphql": "^15.5.0",
     "mongoose": "^5.11.16"
