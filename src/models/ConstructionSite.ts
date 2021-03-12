@@ -1,11 +1,11 @@
-import mongoose from 'mongoose';
+import { model, Schema } from 'mongoose';
 
-const Location = mongoose.Schema({
+const Location = new Schema({
   lat: String,
   lon: String,
 });
 
-const constructionSite = mongoose.Schema(
+const constructionSite = new Schema(
   {
     category: String,
     cause: String,
@@ -24,7 +24,4 @@ const constructionSite = mongoose.Schema(
   },
 );
 
-export const ConstructionSite = mongoose.model(
-  'ConstructionSite',
-  constructionSite,
-);
+export const ConstructionSite = model('ConstructionSite', constructionSite);

@@ -36,3 +36,6 @@ yarn-debug.log*
 .yarn-integrity
 /db/githook_dumps
 /.vscode
+
+# Ignore compiled typescript code
+/lib

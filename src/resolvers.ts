@@ -1,8 +1,10 @@
-import { ConstructionSite } from './models/ConstructionSite.js';
+import { ConstructionSite } from './models/ConstructionSite';
+import { createRoadwork, findRoadwork } from './models/Roadwork';
 
 export const resolvers = {
   Query: {
     constructionSites: () => ConstructionSite.find(),
+    roadworks: findRoadwork,
   },
   Mutation: {
     createConstructionSite: async (
@@ -38,5 +40,6 @@ export const resolvers = {
       await constructionSite.save();
       return constructionSite;
     },
+    createRoadwork,
   },
 };
