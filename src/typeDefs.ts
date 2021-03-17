@@ -59,5 +59,7 @@ export const typeDefs = gql`
     ): ConstructionSite!
 
     createRoadwork(name: String!, description: String): Roadwork!
+    deleteRoadwork(id: ID!): Roadwork!
+    updateRoadwork(id: ID!, name: String, description: String): Roadwork!
   }
 `;

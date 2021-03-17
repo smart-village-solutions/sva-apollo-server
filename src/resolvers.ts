@@ -1,5 +1,10 @@
 import { ConstructionSite } from './models/ConstructionSite';
-import { createRoadwork, findRoadwork } from './models/Roadwork';
+import {
+  createRoadwork,
+  deleteRoadwork,
+  findRoadwork,
+  updateRoadwork,
+} from './models/Roadwork';
 
 export const resolvers = {
   Query: {
@@ -41,5 +46,7 @@ export const resolvers = {
       return constructionSite;
     },
     createRoadwork,
+    deleteRoadwork,
+    updateRoadwork,
   },
 };
