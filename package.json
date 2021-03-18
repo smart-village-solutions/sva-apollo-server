@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon",
     "lint": "eslint ./src/**/* --ext .ts",
-    "test": "jest --runInBand"
+    "test": "jest --runInBand --silent"
   },
   "keywords": [],
   "author": "Philipp Wilimzig, Smart Village Solutions SVS GmbH",

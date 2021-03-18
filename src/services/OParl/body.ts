@@ -1,48 +1,40 @@
-import { Body, IBody } from '../../models/OParl/Body';
-import { isValidBody } from '../../validation';
+import { fetch } from 'apollo-env';
 
-// TODO: add test for validation and separate validation and parsing, adding type to parseJSON arg
-const parseJSON = (json: unknown): IBody | undefined => {
-  if (!isValidBody(json)) {
-    return;
-  }
+import { Body } from '../../models';
+import { parseBody } from '../../parser';
 
-  return {
-    created: new Date(json.created),
-    externalId: json.id,
-    legislativeTerm: json.legislativeTerm.map((value) => value.id),
-    meeting: json.meeting,
-    modified: new Date(json.modified),
-    name: json.name,
-    organization: json.organization,
-    paper: json.paper,
-    person: json.person,
-    type: json.type,
-    ags: json.ags,
-    classification: json.classification,
-    contactEmail: json.contactEmail,
-    contactName: json.contactName,
-    deleted: json.deleted,
-    equivalent: json.equivalent,
-    keyword: json.keyword,
-    license: json.license,
-    licenseValidSince: json.licenseValidSince
-      ? new Date(json.licenseValidSince)
-      : undefined,
-    location: json.location,
-    oparlSince: json.oparlSince ? new Date(json.oparlSince) : undefined,
-    rgs: json.rgs,
-    web: json.web,
-    website: json.website,
-  };
-};
+// import flow
+// 1. fetch json
+// 2. create db object
+//   2.1. validation necessary for parsing (done in parser)
+//   2.2. parse json
+//   2.3. create object
+// 3. validate db object
+// 4. queue new related objects
+// 5. save to db
 
-export const createBodyFromJSON = (json: unknown) => {
-  // validate and parse json
-  const parsedBody = parseJSON(json);
+export const importBody = async (url: string) => {
+  try {
+    const response = await fetch(url);
 
-  // TODO: check for previous existence
-  if (parsedBody) {
-    return new Body(parsedBody).save();
+    if (response.ok) {
+      const json = await response.json();
+
+      // TODO: check for previous existence
+
+      const body = new Body(parseBody(json));
+
+      await body.validate();
+
+      // TODO: check for nested objects to import
+
+      return body.save();
+    } else {
+      throw new Error(
+        `Error while fetching Body from : ${url}! \n response.status: ${response.status}`,
+      );
+    }
+  } catch (e) {
+    console.log(e);
   }
 };
