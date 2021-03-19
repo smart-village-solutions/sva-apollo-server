@@ -13,18 +13,14 @@ const func = async () => {
   const cycle = await Cycle.findOne();
 
   // console.log(rest?.[3]?.fieldNodes?.[0]?.selectionSet?.selections);
-  console.log(cycle?.toJSON());
-
-  await setTimeout(() => {
-    console.log(cycle?.toJSON());
-  }, 1000);
+  // console.log(cycle?.toJSON());
 
   return cycle;
 };
 
 const func2 = async () => {
   const res = await List.findOne();
-  console.log(res?.toJSON());
+  // console.log(res?.toJSON());
   return res;
 };
 export const resolvers = {
@@ -90,14 +86,23 @@ export const resolvers = {
 
       const list1 = new List({
         value: 'true',
-        next: [{ value: '1' }, { value: '2' }],
+        // next: [{ value: '1' }, { value: '2' }],
+        next: ['1', '2'],
       });
       await list1.save();
 
-      const list2 = new List({ value: '1', next: [{ value: '2' }] });
+      const list2 = new List({
+        value: '1',
+        // next: [{ value: '2' }],
+        next: ['2'],
+      });
       await list2.save();
 
-      const list3 = new List({ value: '2', next: [{ value: 'true' }] });
+      const list3 = new List({
+        value: '2',
+        // next: [{ value: 'true' }],
+        next: 'true',
+      });
       await list3.save();
 
       return list1;

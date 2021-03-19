@@ -23,21 +23,17 @@ CycleSchema.plugin(AutoPopulate);
 
 export const Cycle = model<{ value: boolean } & Document>('Cycle', CycleSchema);
 
-const ListEntrySchema = new Schema({
-  value: { type: String, required: true },
-});
-
 const ListSchema = new Schema(
   {
     value: { type: String, required: true },
-    next: [ListEntrySchema],
+    next: [{ type: String, required: true }],
   },
   { toJSON: { virtuals: true } },
 );
 
 ListSchema.virtual('asd', {
   ref: 'List', // The model to use
-  localField: 'next.value', // Find people where `localField`
+  localField: 'next', // Find people where `localField`
   foreignField: 'value', // is equal to `foreignField`
   // If `justOne` is true, 'members' will be a single doc as opposed to
   // an array. `justOne` is false by default.
