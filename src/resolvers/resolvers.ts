@@ -1,15 +1,19 @@
-import { ConstructionSite } from './models/ConstructionSite';
+import { ConstructionSite } from '../models/ConstructionSite';
+import { dateScalar } from './date';
+import { findBody, updateBody } from './OParl/body';
 import {
   createRoadwork,
   deleteRoadwork,
   findRoadwork,
   updateRoadwork,
-} from './models/Roadwork';
+} from './roadwork';
 
 export const resolvers = {
+  Date: dateScalar,
   Query: {
     constructionSites: () => ConstructionSite.find(),
     roadworks: findRoadwork,
+    oParlBodies: findBody,
   },
   Mutation: {
     createConstructionSite: async (
@@ -48,5 +52,6 @@ export const resolvers = {
     createRoadwork,
     deleteRoadwork,
     updateRoadwork,
+    updateBody,
   },
 };

@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`importing a body imports properly 1`] = `
+Object {
+  "__v": 0,
+  "ags": "09162000",
+  "contactEmail": "info@muenchen-transparent.de",
+  "contactName": "München Transparent",
+  "created": 2016-10-16T18:38:18.000Z,
+  "equivalent": Array [],
+  "externalId": "https://www.muenchen-transparent.de/oparl/v1.0/body/0",
+  "keyword": Array [],
+  "legislativeTerm": Array [
+    "https://www.muenchen-transparent.de/oparl/v1.0/legislativeterm/0",
+    "https://www.muenchen-transparent.de/oparl/v1.0/legislativeterm/1",
+    "https://www.muenchen-transparent.de/oparl/v1.0/legislativeterm/2",
+    "https://www.muenchen-transparent.de/oparl/v1.0/legislativeterm/3",
+    "https://www.muenchen-transparent.de/oparl/v1.0/legislativeterm/4",
+  ],
+  "meeting": "https://www.muenchen-transparent.de/oparl/v1.0/body/0/list/meeting",
+  "modified": 2016-10-16T18:39:16.000Z,
+  "name": "Stadrat der Landeshauptstadt München",
+  "organization": "https://www.muenchen-transparent.de/oparl/v1.0/body/0/list/organization",
+  "paper": "https://www.muenchen-transparent.de/oparl/v1.0/body/0/list/paper",
+  "person": "https://www.muenchen-transparent.de/oparl/v1.0/body/0/list/person",
+  "rgs": "606109162000",
+  "type": "https://schema.oparl.org/1.0/Body",
+  "web": "https://www.muenchen-transparent.de/",
+  "website": "https://www.muenchen.de/rathaus/",
+}
+`;
