@@ -82,10 +82,28 @@ export const typeDefs = gql`
     success: Boolean
   }
 
+  type Cycle {
+    value: Boolean
+    cycle: Cycle
+  }
+
+  type SimpleCycle {
+    value: Boolean
+    next: Boolean
+  }
+
+  type List {
+    value: String
+    asd: [List]
+  }
+
   type Query {
     constructionSites: [ConstructionSite!]!
     oParlBodies: [OParlBody!]
     roadworks: [Roadwork!]!
+    getCycle: Cycle
+    getList: List
+    cycles: [SimpleCycle]
   }
 
   type Mutation {
@@ -108,5 +126,8 @@ export const typeDefs = gql`
     deleteRoadwork(id: ID!): Roadwork!
     updateRoadwork(id: ID!, name: String, description: String): Roadwork!
     updateBody(externalId: String!, name: String!): UpdateBodyResponse
+
+    createCycle: Cycle!
+    createList: List
   }
 `;
