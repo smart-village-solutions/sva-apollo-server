@@ -47,3 +47,15 @@ export const List = model<{ value: string; next: string[] } & Document>(
   'List',
   ListSchema,
 );
+
+const SelfSchema = new Schema({
+  value: { type: Boolean, required: true },
+});
+
+export const Self = model<{ value: boolean } & Document>('Self', SelfSchema);
+
+const BiSchema = new Schema({
+  value: { type: Boolean, required: true },
+});
+
+export const Bi = model<{ value: boolean } & Document>('Bi', BiSchema);

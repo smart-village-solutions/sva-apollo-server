@@ -82,6 +82,16 @@ export const typeDefs = gql`
     success: Boolean
   }
 
+  type Self {
+    value: Boolean
+    self: Self
+  }
+
+  type Bi {
+    value: Boolean
+    bi: Bi
+  }
+
   type Cycle {
     value: Boolean
     cycle: Cycle
@@ -104,6 +114,8 @@ export const typeDefs = gql`
     getCycle: Cycle
     getList: List
     cycles: [SimpleCycle]
+    selfQ: Self
+    getBi(value: Boolean): Bi
   }
 
   type Mutation {
@@ -129,5 +141,7 @@ export const typeDefs = gql`
 
     createCycle: Cycle!
     createList: List
+    createSelf: Self
+    createBi: Bi
   }
 `;

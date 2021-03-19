@@ -1,5 +1,5 @@
 import { ConstructionSite } from '../models/ConstructionSite';
-import { Cycle, List } from '../models/Cycle';
+import { Bi, Cycle, List, Self } from '../models/Cycle';
 import { dateScalar } from './date';
 import { findBody, updateBody } from './OParl/body';
 import {
@@ -32,6 +32,24 @@ export const resolvers = {
     getCycle: func,
     getList: func2,
     cycles: () => Cycle.find(),
+    selfQ: () => Self.findOne(),
+    getBi: (_, { value = true }) => Bi.findOne({ value }),
+  },
+  Bi: {
+    value: (args) => {
+      // console.log({ valueArgs: args });
+      return args.value;
+    },
+    bi: (args) => {
+      console.log(args);
+      return Bi.findOne({ value: !args.value });
+    },
+  },
+  Self: {
+    self: (...args) => {
+      console.log(args);
+      return Self.findOne();
+    },
   },
   Mutation: {
     createConstructionSite: async (
@@ -106,6 +124,21 @@ export const resolvers = {
       await list3.save();
 
       return list1;
+    },
+    createSelf: async () => {
+      await Self.deleteMany();
+
+      return await new Self({ value: true }).save();
+    },
+    createBi: async () => {
+      await Bi.deleteMany();
+      const bi1 = new Bi({ value: true });
+      await bi1.save();
+
+      const bi2 = new Bi({ value: false });
+      await bi2.save();
+
+      return bi1;
     },
   },
 };
