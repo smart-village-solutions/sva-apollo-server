@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`importing a agendaItem imports properly 1`] = `
+Object {
+  "__v": 0,
+  "auxiliaryFile": Array [],
+  "consultation": "https://www.muenchen-transparent.de/oparl/v1.0/consultation/48823",
+  "externalId": "https://www.muenchen-transparent.de/oparl/v1.0/agendaitem/48823",
+  "keyword": Array [],
+  "name": "Tagesordnung",
+  "number": "1",
+  "resolutionText": "",
+  "type": "https://schema.oparl.org/1.0/AgendaItem",
+}
+`;
