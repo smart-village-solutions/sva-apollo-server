@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`importing a consultation imports properly 1`] = `
+Object {
+  "__v": 0,
+  "externalId": "https://www.muenchen-transparent.de/oparl/v1.0/consultation/48823",
+  "keyword": Array [],
+  "meeting": "https://www.muenchen-transparent.de/oparl/v1.0/meeting/5703",
+  "organization": Array [
+    "https://www.muenchen-transparent.de/oparl/v1.0/organization/gremium/5",
+  ],
+  "type": "https://schema.oparl.org/1.0/Consultation",
+}
+`;
