@@ -1,4 +1,4 @@
-import { ConstructionSite } from '../models/ConstructionSite';
+import { constructionSites, createConstructionSite } from './constructionSite';
 import { dateScalar } from './date';
 import { findBody, updateBody } from './OParl/body';
 import {
@@ -11,44 +11,12 @@ import {
 export const resolvers = {
   Date: dateScalar,
   Query: {
-    constructionSites: () => ConstructionSite.find(),
+    constructionSites,
     roadworks: findRoadwork,
     oParlBodies: findBody,
   },
   Mutation: {
-    createConstructionSite: async (
-      _,
-      {
-        category,
-        cause,
-        description,
-        direction,
-        endDate,
-        imageUri,
-        lat,
-        lon,
-        locationDescription,
-        restrictions,
-        startDate,
-        title,
-      },
-    ) => {
-      const constructionSite = new ConstructionSite({
-        category,
-        cause,
-        description,
-        direction,
-        endDate,
-        imageUri,
-        location: { lat, lon },
-        locationDescription,
-        restrictions,
-        startDate,
-        title,
-      });
-      await constructionSite.save();
-      return constructionSite;
-    },
+    createConstructionSite,
     createRoadwork,
     deleteRoadwork,
     updateRoadwork,

@@ -1,0 +1,27 @@
+import { gql } from 'apollo-server-core';
+import { constructionSiteGQL } from './constructionSite';
+import { dateGQL } from './date';
+import { locationGQL } from './location';
+import { bodyGQL } from './OParl';
+import { roadworkGQL } from './roadwork';
+
+const _baseGQL = gql`
+  type Query {
+    roadworks: [Roadwork!]!
+  }
+
+  type Mutation {
+    createRoadwork(name: String!, description: String): Roadwork!
+    deleteRoadwork(id: ID!): Roadwork!
+    updateRoadwork(id: ID!, name: String, description: String): Roadwork!
+  }
+`;
+
+export const typeDefs = [
+  _baseGQL, // query and mutation need to be first, because their types are extended by others
+  bodyGQL,
+  constructionSiteGQL,
+  dateGQL,
+  locationGQL,
+  roadworkGQL,
+];
