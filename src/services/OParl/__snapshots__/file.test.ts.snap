@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`importing a file imports properly 1`] = `
+Object {
+  "__v": 0,
+  "accessUrl": "https://ris.schwalmtal.de/webservice/oparl/v1.0/body/1/files/UGhVM0hpd2NXNFdFcExjZVKE4EEV_Uz8C4k5jYgDq6a1lryV5UKF7tcmgNHWqs0-/Verwaltungsvorlage_899-09.pdf",
+  "agendaItem": Array [],
+  "created": 2017-07-27T17:53:36.000Z,
+  "derivativeFile": Array [],
+  "downloadUrl": "https://ris.schwalmtal.de/webservice/oparl/v1.0/body/1/files/download/UGhVM0hpd2NXNFdFcExjZVKE4EEV_Uz8C4k5jYgDq6a1lryV5UKF7tcmgNHWqs0-/Verwaltungsvorlage_899-09.pdf",
+  "externalId": "https://ris.schwalmtal.de/webservice/oparl/v1.0/body/1/file/1-4",
+  "keyword": Array [],
+  "meeting": Array [],
+  "mimeType": "application/pdf",
+  "modified": 2017-07-27T17:53:36.000Z,
+  "name": "Verwaltungsvorlage (Umgebungslärm-Richtlinie 2002/49/EG; hier: Umsetzung dieser Richtlinie im Bereich der Gemeinde Schwalmtal)",
+  "paper": Array [],
+  "type": "https://schema.oparl.org/1.0/File",
+}
+`;

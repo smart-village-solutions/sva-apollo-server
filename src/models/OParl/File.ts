@@ -45,4 +45,4 @@ const FileSchema = new Schema<IFileSchema>(
   }),
 );
 
-export const Paper = model<IFileSchema>('File', FileSchema);
+export const File = model<IFileSchema>('File', FileSchema);
