@@ -1,6 +1,6 @@
 import { MongoMemoryServer } from 'mongodb-memory-server';
 import mongoose from 'mongoose';
-import { importBody } from '../../services/OParl/body';
+import { importBody } from '../OParl/body';
 
 const mongod = new MongoMemoryServer();
 
