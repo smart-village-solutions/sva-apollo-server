@@ -3,7 +3,7 @@ import { OParlBase, oParlBaseSchema } from './OParlBase';
 
 // does not use created modified deleted for OParl 1.0
 export interface ILegislativeTerm extends OParlBase {
-  body?: string;
+  body?: string; // externalId of the corresponding body
   name?: string;
   startDate?: Date;
   endDate?: Date;
