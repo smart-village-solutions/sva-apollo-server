@@ -1,3 +1,5 @@
+import { Roadwork } from '../models';
+import { Bucket } from '../models/Buckets';
 import { ConstructionSite } from '../models/ConstructionSite';
 import { Bi, Cycle, List, Self } from '../models/Cycle';
 import { dateScalar } from './date';
@@ -34,6 +36,7 @@ export const resolvers = {
     cycles: () => Cycle.find(),
     selfQ: () => Self.findOne(),
     getBi: (_, { value = true }) => Bi.findOne({ value }),
+    getBucket: (_, { myId }) => Bucket.findOne({ myId }),
   },
   Bi: {
     value: (args) => {
@@ -44,6 +47,13 @@ export const resolvers = {
       console.log(args);
       return Bi.findOne({ value: !args.value });
     },
+  },
+  Bucket: {
+    myId: (args) => args.myId,
+    roadworks: (args) =>
+      args.roadworks.map((value) => Roadwork.findOne({ name: value })),
+    buckets: (args) =>
+      args.buckets.map((value) => Bucket.findOne({ myId: value })),
   },
   Self: {
     self: (...args) => {
@@ -139,6 +149,24 @@ export const resolvers = {
       await bi2.save();
 
       return bi1;
+    },
+    createBucket: async () => {
+      await Bucket.deleteMany();
+      const b1 = new Bucket({
+        myId: 'first',
+        roadworks: ['mega', 'alfred'],
+        buckets: ['first', 'second'],
+      });
+      await b1.save();
+
+      const b2 = new Bucket({
+        myId: 'second',
+        roadworks: ['alfred'],
+        buckets: ['first'],
+      });
+      await b2.save();
+
+      return b1;
     },
   },
 };

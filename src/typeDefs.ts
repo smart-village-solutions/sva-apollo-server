@@ -107,6 +107,12 @@ export const typeDefs = gql`
     asd: [List]
   }
 
+  type Bucket {
+    myId: ID!
+    buckets: [Bucket!]
+    roadworks: [Roadwork!]
+  }
+
   type Query {
     constructionSites: [ConstructionSite!]!
     oParlBodies: [OParlBody!]
@@ -116,6 +122,7 @@ export const typeDefs = gql`
     cycles: [SimpleCycle]
     selfQ: Self
     getBi(value: Boolean): Bi
+    getBucket(myId: ID): Bucket
   }
 
   type Mutation {
@@ -143,5 +150,6 @@ export const typeDefs = gql`
     createList: List
     createSelf: Self
     createBi: Bi
+    createBucket: Bucket
   }
 `;
