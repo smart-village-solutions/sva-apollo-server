@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`importing a meeting imports properly 1`] = `
+Object {
+  "__v": 0,
+  "created": 2017-01-30T17:23:35.000Z,
+  "externalId": "https://ris.schwalmtal.de/webservice/oparl/v1.0/body/1/membership/1-2-115-13",
+  "keyword": Array [],
+  "modified": 2017-09-22T05:31:08.000Z,
+  "organization": "https://ris.schwalmtal.de/webservice/oparl/v1.0/body/1/organization/2-115",
+  "person": "https://ris.schwalmtal.de/webservice/oparl/v1.0/body/1/person/13",
+  "role": "Ratsfrau",
+  "startDate": 1950-01-01T00:00:00.000Z,
+  "type": "https://schema.oparl.org/1.0/Membership",
+}
+`;

@@ -5,3 +5,4 @@ export * from './file';
 export * from './legislativeTerm';
 export * from './location';
 export * from './meeting';
+export * from './membership';
