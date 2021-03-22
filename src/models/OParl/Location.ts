@@ -2,7 +2,7 @@ import { Document, model, Schema } from 'mongoose';
 import { optionalStringArray } from '../modelHelpers';
 import { OParlBase, oParlBaseSchema } from './OParlBase';
 
-interface ILocation extends OParlBase {
+export interface ILocation extends OParlBase {
   description?: string;
   geojson?: string; // TODO: string representation of the GeoJSON might not be what we need/want
   streetAddress?: string;
