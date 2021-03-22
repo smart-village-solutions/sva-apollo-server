@@ -11,7 +11,7 @@ const helperFuncs = setupTestDataBase('test_location_import');
 const testUrl =
   'https://ris.schwalmtal.de/webservice/oparl/v1.0/body/1/location/1-7';
 
-describe('importing a location term', () => {
+describe('importing a location', () => {
   beforeAll(helperFuncs.beforeAll);
 
   it('imports properly', basicImportTest(importLocation, testUrl));

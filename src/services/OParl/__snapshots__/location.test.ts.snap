@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`importing a location term imports properly 1`] = `
+exports[`importing a location imports properly 1`] = `
 Object {
   "__v": 0,
   "bodies": Array [

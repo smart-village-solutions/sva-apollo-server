@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`importing a meeting imports properly 1`] = `
+Object {
+  "__v": 0,
+  "agendaItem": Array [
+    "https://ris.schwalmtal.de/webservice/oparl/v1.0/body/1/agendaitem/4155",
+    "https://ris.schwalmtal.de/webservice/oparl/v1.0/body/1/agendaitem/317",
+    "https://ris.schwalmtal.de/webservice/oparl/v1.0/body/1/agendaitem/325",
+    "https://ris.schwalmtal.de/webservice/oparl/v1.0/body/1/agendaitem/326",
+    "https://ris.schwalmtal.de/webservice/oparl/v1.0/body/1/agendaitem/327",
+    "https://ris.schwalmtal.de/webservice/oparl/v1.0/body/1/agendaitem/328",
+    "https://ris.schwalmtal.de/webservice/oparl/v1.0/body/1/agendaitem/329",
+    "https://ris.schwalmtal.de/webservice/oparl/v1.0/body/1/agendaitem/330",
+    "https://ris.schwalmtal.de/webservice/oparl/v1.0/body/1/agendaitem/331",
+    "https://ris.schwalmtal.de/webservice/oparl/v1.0/body/1/agendaitem/320",
+    "https://ris.schwalmtal.de/webservice/oparl/v1.0/body/1/agendaitem/299",
+  ],
+  "auxiliaryFile": Array [],
+  "created": 2017-07-24T15:33:12.000Z,
+  "end": 2004-11-16T19:00:00.000Z,
+  "externalId": "https://ris.schwalmtal.de/webservice/oparl/v1.0/body/1/meeting/503",
+  "keyword": Array [
+    "Rat der Gemeinde",
+  ],
+  "modified": 2017-08-01T12:14:43.000Z,
+  "name": "Rat der Gemeinde",
+  "organization": Array [
+    "https://ris.schwalmtal.de/webservice/oparl/v1.0/body/1/organization/1-1",
+  ],
+  "participant": Array [],
+  "start": 2004-11-16T18:00:00.000Z,
+  "type": "https://schema.oparl.org/1.0/Meeting",
+  "web": "https://ris.schwalmtal.de/tops/?__=UGhVM0hpd2NXNFdFcExjZcG8mlSHys8pcEOe79OBc6U",
+}
+`;

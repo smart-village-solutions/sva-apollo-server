@@ -11,7 +11,7 @@ const helperFuncs = setupTestDataBase('test_agenda_item_import');
 const testUrl =
   'https://www.muenchen-transparent.de/oparl/v1.0/agendaitem/48823';
 
-describe('importing a agendaItem', () => {
+describe('importing a agenda item', () => {
   beforeAll(helperFuncs.beforeAll);
 
   it('imports properly', basicImportTest(importAgendaItem, testUrl));

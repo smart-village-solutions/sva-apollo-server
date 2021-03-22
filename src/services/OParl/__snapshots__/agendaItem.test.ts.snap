@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`importing a agendaItem imports properly 1`] = `
+exports[`importing a agenda item imports properly 1`] = `
 Object {
   "__v": 0,
   "auxiliaryFile": Array [],
