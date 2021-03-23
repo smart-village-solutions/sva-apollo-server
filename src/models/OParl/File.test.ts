@@ -42,6 +42,7 @@ describe('creating a File', () => {
     // check that the entries are properly set
     expect(file).toHaveProperty('externalId', minimalInput.externalId);
     expect(file).toHaveProperty('type', minimalInput.type);
+    expect(file).toHaveProperty('accessUrl', minimalInput.accessUrl);
   });
 
   it('creates a File with maximal input', async () => {

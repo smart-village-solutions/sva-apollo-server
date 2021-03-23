@@ -1,4 +1,5 @@
 import { Document, model, Schema } from 'mongoose';
+import { requiredStringArray } from '../modelHelpers';
 import { OParlBase, oParlBaseSchema } from './OParlBase';
 
 // OParl systems do not use the keyword property (from oparl base)
@@ -6,7 +7,7 @@ export interface ISystem extends OParlBase {
   oparlVersion: string;
   otherOparlVersions?: string[];
   license?: string;
-  body: string;
+  body: string[];
   name?: string;
   contactEmail?: string;
   contactName?: string;
@@ -23,7 +24,7 @@ const SystemSchema = new Schema<ISystemSchema>(
     oparlVersion: { type: String, required: true },
     otherOparlVersions: [{ type: String, required: true }],
     license: String,
-    body: { type: String, required: true },
+    body: requiredStringArray,
     name: String,
     contactEmail: String,
     contactName: String,
