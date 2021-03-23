@@ -9,7 +9,7 @@ const helperFuncs = setupTestDataBase('test_file_import');
 
 // TODO: change test url to something within our control, that uses all fields
 const testUrl =
-  'https://ris.schwalmtal.de/webservice/oparl/v1.0/body/1/file/1-4';
+  'https://www.lwl-pch.sitzung-online.de/oi/oparl/1.0/files.asp?dtyp=110&id=21740';
 
 describe('importing a file', () => {
   beforeAll(helperFuncs.beforeAll);

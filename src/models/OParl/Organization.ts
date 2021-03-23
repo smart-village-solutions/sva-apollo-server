@@ -6,7 +6,7 @@ export interface IOrganization extends OParlBase {
   body?: string;
   name?: string;
   membership?: string[];
-  meeting?: string;
+  meeting?: string[];
   shortName?: string;
   post?: string[];
   subOrganizationOf?: string;
@@ -27,7 +27,7 @@ const OrganizationSchema = new Schema<IOrganizationSchema>(
     body: String,
     name: String,
     membership: optionalStringArray,
-    meeting: String,
+    meeting: optionalStringArray,
     shortName: String,
     post: optionalStringArray,
     subOrganizationOf: String,
