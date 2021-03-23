@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`importing a person imports properly 1`] = `
+Object {
+  "__v": 0,
+  "created": 2011-09-04T10:00:00.000Z,
+  "email": Array [],
+  "externalId": "https://www.lwl-pch.sitzung-online.de/oi/oparl/1.0/persons.asp?typ=sb&id=442",
+  "familyName": "Hertel",
+  "givenName": "Marita",
+  "keyword": Array [],
+  "membership": Array [],
+  "modified": 2019-05-22T11:38:05.000Z,
+  "name": "Marita Hertel",
+  "phone": Array [],
+  "status": Array [],
+  "title": Array [],
+  "type": "https://schema.oparl.org/1.0/Person",
+}
+`;

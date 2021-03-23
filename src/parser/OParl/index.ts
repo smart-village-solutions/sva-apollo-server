@@ -8,3 +8,4 @@ export * from './meeting';
 export * from './membership';
 export * from './organization';
 export * from './paper';
+export * from './person';
