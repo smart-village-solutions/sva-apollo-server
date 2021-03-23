@@ -7,3 +7,4 @@ export * from './location';
 export * from './meeting';
 export * from './membership';
 export * from './organization';
+export * from './paper';
