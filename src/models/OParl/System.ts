@@ -5,9 +5,9 @@ import { OParlBase, oParlBaseSchema } from './OParlBase';
 // OParl systems do not use the keyword property (from oparl base)
 export interface ISystem extends OParlBase {
   oparlVersion: string;
-  otherOparlVersions?: string[];
+  otherOparlVersions?: string[]; // arry of urls to other oparl sytems
   license?: string;
-  body: string[];
+  body: string[]; // array of externalIds of bodies
   name?: string;
   contactEmail?: string;
   contactName?: string;

@@ -3,20 +3,20 @@ import { optionalStringArray } from '../modelHelpers';
 import { OParlBase, oParlBaseSchema } from './OParlBase';
 
 export interface IOrganization extends OParlBase {
-  body?: string;
+  body?: string; // externalId of a body
   name?: string;
-  membership?: string[];
-  meeting?: string[];
+  membership?: string[]; // array of external ids of memberships
+  meeting?: string[]; // array of external ids of meetings
   shortName?: string;
   post?: string[];
-  subOrganizationOf?: string;
+  subOrganizationOf?: string; // externalId of an organization
   organizationType?: string;
   classification?: string;
   startDate?: Date;
   endDate?: Date;
   website?: string;
   location?: string; // externalId of the location object
-  externalBody?: string;
+  externalBody?: string; // externalId of a body of another OParl system (which will not be handled for now)
 }
 
 interface IOrganizationSchema extends IOrganization, Document {}

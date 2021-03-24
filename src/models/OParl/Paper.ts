@@ -3,7 +3,7 @@ import { optionalStringArray } from '../modelHelpers';
 import { OParlBase, oParlBaseSchema } from './OParlBase';
 
 export interface IPaper extends OParlBase {
-  body?: string;
+  body?: string; // externalId of a body
   name?: string;
   reference?: string;
   date?: Date;

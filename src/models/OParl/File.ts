@@ -13,7 +13,7 @@ export interface IFile extends OParlBase {
   accessUrl: string;
   downloadUrl?: string;
   externalServiceUrl?: string;
-  masterFile?: string;
+  masterFile?: string; // externalId of a file
   derivativeFile?: string[]; // array of externalIds of the file objects
   fileLicense?: string;
   meeting?: string[]; // array of externalIds of the meeting objects

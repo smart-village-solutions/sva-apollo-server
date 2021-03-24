@@ -3,7 +3,7 @@ import { optionalStringArray } from '../modelHelpers';
 import { OParlBase, oParlBaseSchema } from './OParlBase';
 
 export interface IPerson extends OParlBase {
-  body?: string;
+  body?: string; // externalId of a body
   name?: string;
   familyName?: string;
   givenName?: string;
@@ -13,7 +13,7 @@ export interface IPerson extends OParlBase {
   gender?: string;
   phone?: string[];
   email?: string[];
-  location?: string;
+  location?: string; // externalId of a location
   status?: string[];
   membership?: string[]; // array of externalIds of the membership objects
   life?: string;
