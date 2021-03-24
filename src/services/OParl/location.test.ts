@@ -2,7 +2,7 @@ import {
   basicImportTest,
   invalidUrlTest,
   setupTestDataBase,
-} from '../../testHelpers';
+} from '../../helpers';
 import { importLocation } from './location';
 
 const helperFuncs = setupTestDataBase('test_location_import');

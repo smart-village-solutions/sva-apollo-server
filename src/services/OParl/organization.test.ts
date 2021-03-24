@@ -2,30 +2,32 @@ import {
   basicImportTest,
   invalidUrlTest,
   setupTestDataBase,
-} from '../../testHelpers';
+} from '../../helpers';
 import { importOrganization } from './organization';
 
 const helperFuncs = setupTestDataBase('test_organization_import');
 
 // TODO: change test url to something within our control
 const testUrl =
-  'https://www.lwl-pch.sitzung-online.de/oi/oparl/1.0/organizations.asp?typ=gr&id=40';
+  'https://oparl.politik-bei-uns.de/organization/5a73013bf24bb7ed5127a7df';
 
 describe('importing an organization', () => {
-  beforeAll(async () => {
-    await helperFuncs.beforeAll();
-    jest.setTimeout(20000);
-  });
+  beforeAll(helperFuncs.beforeAll);
 
-  it('imports properly', basicImportTest(importOrganization, testUrl));
+  it(
+    'imports properly',
+    basicImportTest(
+      importOrganization,
+      testUrl,
+      new Date('2017-06-01'),
+      new Date('2018-06-01'),
+    ),
+  );
 
   it(
     'import returns undefined on faulty url',
     invalidUrlTest(importOrganization),
   );
 
-  afterAll(async () => {
-    helperFuncs.afterAll();
-    jest.setTimeout(5000);
-  });
+  afterAll(helperFuncs.afterAll);
 });

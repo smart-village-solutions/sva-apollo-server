@@ -2,7 +2,7 @@ import {
   basicImportTest,
   invalidUrlTest,
   setupTestDataBase,
-} from '../../testHelpers';
+} from '../../helpers';
 import { importPaper } from './paper';
 
 const helperFuncs = setupTestDataBase('test_paper_import');

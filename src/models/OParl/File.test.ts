@@ -89,7 +89,7 @@ describe('creating a File', () => {
     expect(file.keyword?.toString()).toEqual(maximalInput.keyword?.toString());
   });
 
-  it('fails to validate after creating an File without required values', async () => {
+  it('fails to validate after creating a File without required values', async () => {
     const file = new File({});
 
     await expect(file.validate()).rejects.toThrowError();

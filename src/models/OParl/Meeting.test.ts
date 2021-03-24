@@ -90,7 +90,7 @@ describe('creating a Meeting', () => {
     );
   });
 
-  it('fails to validate after creating an Meeting without required values', async () => {
+  it('fails to validate after creating a Meeting without required values', async () => {
     const meeting = new Meeting({});
 
     await expect(meeting.validate()).rejects.toThrowError();

@@ -83,7 +83,7 @@ describe('creating a Location', () => {
     );
   });
 
-  it('fails to validate after creating an Location without required values', async () => {
+  it('fails to validate after creating a Location without required values', async () => {
     const location = new Location({});
 
     await expect(location.validate()).rejects.toThrowError();

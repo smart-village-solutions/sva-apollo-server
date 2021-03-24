@@ -14,7 +14,11 @@ import { fetchPaginatedOParlList } from './paginatedList';
 // 4. queue new related objects
 // 5. save to db
 
-export const importOrganization = async (url: string) => {
+export const importOrganization = async (
+  url: string,
+  createdSince?: Date,
+  createdUntil?: Date,
+) => {
   try {
     const response = await fetch(url);
 
@@ -24,7 +28,11 @@ export const importOrganization = async (url: string) => {
       // TODO: check for previous existence
 
       if (json?.meeting) {
-        json.meeting = await fetchPaginatedOParlList(json.meeting);
+        json.meeting = await fetchPaginatedOParlList(
+          json.meeting,
+          createdSince,
+          createdUntil,
+        );
       }
 
       const lt = new Organization(parseOrganization(json));

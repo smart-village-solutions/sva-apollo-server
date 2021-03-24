@@ -75,7 +75,7 @@ describe('creating a System', () => {
     );
   });
 
-  it('fails to validate after creating a Person without required values', async () => {
+  it('fails to validate after creating a System without required values', async () => {
     const person = new System({});
 
     await expect(person.validate()).rejects.toThrowError();

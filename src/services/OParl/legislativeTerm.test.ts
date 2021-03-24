@@ -2,8 +2,8 @@ import {
   basicImportTest,
   invalidUrlTest,
   setupTestDataBase,
-} from '../../testHelpers';
-import { importLegislativeTerm } from '../OParl/legislativeTerm';
+} from '../../helpers';
+import { importLegislativeTerm } from './legislativeTerm';
 
 const helperFuncs = setupTestDataBase('test_legislative_term_import');
 

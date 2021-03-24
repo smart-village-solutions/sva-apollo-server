@@ -64,7 +64,7 @@ describe('creating a Consultation', () => {
     );
   });
 
-  it('fails to validate after creating an Consultation without required values', async () => {
+  it('fails to validate after creating a Consultation without required values', async () => {
     const consultation = new Consultation({});
 
     await expect(consultation.validate()).rejects.toThrowError();

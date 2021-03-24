@@ -22,9 +22,14 @@ export const setupTestDataBase = (databaseName: string) => {
   };
 };
 
-export const basicImportTest = (importer, testUrl: string) => {
+export const basicImportTest = (
+  importer,
+  testUrl: string,
+  createdSince?: Date,
+  createdUntil?: Date,
+) => {
   return async () => {
-    const lt = await importer(testUrl);
+    const lt = await importer(testUrl, createdSince, createdUntil);
     expect(lt).toBeDefined();
     const json = lt?.toJSON();
     delete json?._id;

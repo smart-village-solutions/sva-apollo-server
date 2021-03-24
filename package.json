@@ -34,6 +34,7 @@
     "express": "^4.17.1",
     "graphql": "^15.5.0",
     "lodash": "^4.17.21",
+    "moment": "^2.29.1",
     "mongodb-memory-server": "^6.9.6",
     "mongoose": "^5.11.16"
   }

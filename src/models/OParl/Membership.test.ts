@@ -63,7 +63,7 @@ describe('creating a Membership', () => {
     );
   });
 
-  it('fails to validate after creating an Membership without required values', async () => {
+  it('fails to validate after creating a Membership without required values', async () => {
     const membership = new Membership({});
 
     await expect(membership.validate()).rejects.toThrowError();

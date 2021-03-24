@@ -13,10 +13,10 @@ export interface IBody extends OParlBase {
   equivalent?: string[];
   contactEmail?: string;
   contactName?: string;
-  organization: string;
-  person: string;
-  meeting: string;
-  paper: string;
+  organization: string[];
+  person: string[];
+  meeting: string[];
+  paper: string[];
   legislativeTerm: string[];
   classification?: string;
   location?: string; // externalId of the location object
@@ -37,10 +37,10 @@ const BodySchema = new Schema<IBodySchema>(
     equivalent: [String],
     contactEmail: String,
     contactName: String,
-    organization: String,
-    person: String,
-    meeting: String,
-    paper: String,
+    organization: requiredStringArray,
+    person: requiredStringArray,
+    meeting: requiredStringArray,
+    paper: requiredStringArray,
     legislativeTerm: requiredStringArray,
     classification: String,
     location: String,

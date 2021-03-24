@@ -2,7 +2,7 @@ import {
   basicImportTest,
   invalidUrlTest,
   setupTestDataBase,
-} from '../../testHelpers';
+} from '../../helpers';
 import { importAgendaItem } from './agendaItem';
 
 const helperFuncs = setupTestDataBase('test_agenda_item_import');
