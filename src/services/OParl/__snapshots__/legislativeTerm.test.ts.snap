@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`importing a legislative term imports properly 1`] = `
+Object {
+  "__v": 0,
+  "externalId": "https://www.muenchen-transparent.de/oparl/v1.0/legislativeterm/0",
+  "keyword": Array [],
+  "name": "Unbekannt",
+  "type": "https://schema.oparl.org/1.0/LegislativeTerm",
+}
+`;

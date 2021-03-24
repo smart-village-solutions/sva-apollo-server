@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`importing an organization imports properly 1`] = `
+Object {
+  "__v": 0,
+  "body": "https://oparl.politik-bei-uns.de/body/5a73013af24bb7ed5127a72a",
+  "classification": "Ausschuss",
+  "created": 2016-10-06T10:00:00.000Z,
+  "externalId": "https://oparl.politik-bei-uns.de/organization/5a73013bf24bb7ed5127a7df",
+  "keyword": Array [],
+  "location": "https://oparl.politik-bei-uns.de/location/5a73013bf24bb7ed5127a7b5",
+  "meeting": Array [
+    "https://oparl.politik-bei-uns.de/meeting/5a730150f24bb7ed5127d6eb",
+    "https://oparl.politik-bei-uns.de/meeting/5a730175f24bb7ed5127eac8",
+    "https://oparl.politik-bei-uns.de/meeting/5a73017ff24bb7ed5127f0d7",
+    "https://oparl.politik-bei-uns.de/meeting/5a730183f24bb7ed5127f330",
+  ],
+  "membership": Array [
+    "https://oparl.politik-bei-uns.de/membership/5a73013bf24bb7ed5127a7b8",
+    "https://oparl.politik-bei-uns.de/membership/5a73013bf24bb7ed5127a7bb",
+    "https://oparl.politik-bei-uns.de/membership/5a73013bf24bb7ed5127a7be",
+    "https://oparl.politik-bei-uns.de/membership/5a73013bf24bb7ed5127a7c1",
+    "https://oparl.politik-bei-uns.de/membership/5a73013bf24bb7ed5127a7c4",
+    "https://oparl.politik-bei-uns.de/membership/5a73013bf24bb7ed5127a7c7",
+    "https://oparl.politik-bei-uns.de/membership/5a73013bf24bb7ed5127a7ca",
+    "https://oparl.politik-bei-uns.de/membership/5a73013bf24bb7ed5127a7cd",
+    "https://oparl.politik-bei-uns.de/membership/5a73013bf24bb7ed5127a7d0",
+    "https://oparl.politik-bei-uns.de/membership/5a73013bf24bb7ed5127a7d3",
+    "https://oparl.politik-bei-uns.de/membership/5a73013bf24bb7ed5127a7d6",
+    "https://oparl.politik-bei-uns.de/membership/5a73013bf24bb7ed5127a7d9",
+    "https://oparl.politik-bei-uns.de/membership/5a73013bf24bb7ed5127a7dc",
+  ],
+  "modified": 2018-01-23T10:59:02.000Z,
+  "name": "Betriebsausschuss Abfallwirtschaft",
+  "organizationType": "Gremium",
+  "post": Array [],
+  "shortName": "BA",
+  "startDate": 2016-10-06T00:00:00.000Z,
+  "type": "https://schema.oparl.org/1.0/Organization",
+}
+`;

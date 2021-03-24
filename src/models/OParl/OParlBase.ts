@@ -7,3 +7,14 @@ export interface OParlBase {
   web?: string;
   deleted?: boolean;
 }
+
+// always generate a new object to merge with using Object.assign
+export const oParlBaseSchema = () => ({
+  externalId: { type: String, required: true },
+  type: { type: String, required: true },
+  created: Date,
+  modified: Date,
+  keyword: [{ type: String, required: true }],
+  web: String,
+  deleted: Boolean,
+});

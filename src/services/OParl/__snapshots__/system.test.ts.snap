@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`importing a system imports properly 1`] = `
+Object {
+  "__v": 0,
+  "body": Array [],
+  "contactEmail": "andreas.schreiber@kreis-lup.de",
+  "contactName": "Andreas Schreiber",
+  "externalId": "https://www.lwl-pch.sitzung-online.de/oi/oparl/1.0/system.asp",
+  "keyword": Array [],
+  "license": "http://opendatahandbook.org/guide/de/how-to-open-up-data/",
+  "name": "Landkreis LUP",
+  "oparlVersion": "https://schema.oparl.org/1.0/",
+  "otherOparlVersions": Array [],
+  "product": "http://cc-egov.de/produkte/allris",
+  "type": "https://schema.oparl.org/1.0/System",
+  "vendor": "http://cc-egov.de/",
+  "website": "https://www.lwl-pch.sitzung-online.de/bi/",
+}
+`;

@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`importing a paper imports properly 1`] = `
+Object {
+  "__v": 0,
+  "auxiliaryFile": Array [],
+  "body": "https://www.lwl-pch.sitzung-online.de/oi/oparl/1.0/bodies.asp?id=2",
+  "consultation": Array [
+    "https://www.lwl-pch.sitzung-online.de/oi/oparl/1.0/consultations.asp?typ=i&id=9295",
+  ],
+  "created": 2011-09-28T10:00:00.000Z,
+  "date": 2011-10-05T00:00:00.000Z,
+  "externalId": "https://www.lwl-pch.sitzung-online.de/oi/oparl/1.0/papers.asp?id=1198",
+  "keyword": Array [],
+  "location": Array [],
+  "modified": 2011-10-05T08:30:54.000Z,
+  "name": "Beschlussfassung über die Bildung einer Zählkommission",
+  "originatorOrganization": Array [],
+  "originatorPerson": Array [
+    "https://www.lwl-pch.sitzung-online.de/oi/oparl/1.0/persons.asp?typ=sb&id=442",
+  ],
+  "paperType": "Beschlussvorlage öffentlich",
+  "reference": "I-2011/034",
+  "relatedPaper": Array [],
+  "subordinatedPaper": Array [],
+  "superordinatedPaper": Array [],
+  "type": "https://schema.oparl.org/1.0/Paper",
+  "underDirectionOf": Array [
+    "https://www.lwl-pch.sitzung-online.de/oi/oparl/1.0/organizations.asp?typ=at&id=1",
+  ],
+  "web": "https://www.lwl-pch.sitzung-online.de/bi/vo020.asp?VOLFDNR=1198",
+}
+`;

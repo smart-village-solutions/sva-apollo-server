@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`importing a location imports properly 1`] = `
+Object {
+  "__v": 0,
+  "bodies": Array [
+    "https://ris.schwalmtal.de/webservice/oparl/v1.0/body/1",
+  ],
+  "created": 2017-01-30T17:23:46.000Z,
+  "description": "An Haus Clee 32, 41366 Schwalmtal",
+  "externalId": "https://ris.schwalmtal.de/webservice/oparl/v1.0/body/1/location/1-7",
+  "keyword": Array [],
+  "locality": "Schwalmtal",
+  "meeting": Array [],
+  "modified": 2020-12-11T10:51:00.000Z,
+  "organization": Array [],
+  "papers": Array [],
+  "postalCode": "41366",
+  "streetAddress": "An Haus Clee 32",
+  "type": "https://schema.oparl.org/1.0/Location",
+}
+`;

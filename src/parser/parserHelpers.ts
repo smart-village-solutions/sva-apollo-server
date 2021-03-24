@@ -1,7 +1,7 @@
 import { isArray } from 'lodash';
 
 // TODO: improve filter to only match proper ids?
-export const mapToIds = (json: unknown) => {
+export const mapToIds = (json: unknown): string[] => {
   if (isArray(json)) {
     return json.map((value) => value?.id).filter((id) => id !== undefined);
   }

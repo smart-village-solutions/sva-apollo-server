@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`importing a file imports properly 1`] = `
+Object {
+  "__v": 0,
+  "accessUrl": "https://www.lwl-pch.sitzung-online.de/oi/oparl/1.0/download.asp?dtyp=110&id=21740",
+  "agendaItem": Array [],
+  "created": 2011-11-02T11:00:00.000Z,
+  "derivativeFile": Array [],
+  "externalId": "https://www.lwl-pch.sitzung-online.de/oi/oparl/1.0/files.asp?dtyp=110&id=21740",
+  "fileName": "21740.pdf",
+  "keyword": Array [],
+  "meeting": Array [],
+  "mimeType": "application/pdf",
+  "modified": 2017-02-09T15:15:31.000Z,
+  "name": "Niederschrift",
+  "paper": Array [],
+  "size": 334411,
+  "type": "https://schema.oparl.org/1.0/File",
+}
+`;
