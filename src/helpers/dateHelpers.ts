@@ -1,20 +1,12 @@
 import moment from 'moment';
 
-export const formatToQueryDate = (date?: Date) => {
-  if (date)
-    return encodeURIComponent(moment(date).format('yyyy-MM-DDThh:mm:ssZ'));
-};
+const formatToQueryDate = (date: Date) =>
+  encodeURIComponent(moment(date).format('yyyy-MM-DDThh:mm:ssZ'));
 
 export const formatCreatedSince = (date?: Date) => {
-  if (date)
-    return `created_since=${encodeURIComponent(
-      moment(date).format('yyyy-MM-DDThh:mm:ssZ'),
-    )}`;
+  if (date) return `created_since=${formatToQueryDate(date)}`;
 };
 
 export const formatCreatedUntil = (date?: Date) => {
-  if (date)
-    return `created_until=${encodeURIComponent(
-      moment(date).format('yyyy-MM-DDThh:mm:ssZ'),
-    )}`;
+  if (date) return `created_until=${formatToQueryDate(date)}`;
 };
