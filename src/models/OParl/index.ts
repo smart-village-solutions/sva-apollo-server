@@ -1,3 +1,5 @@
+export * from './modelTypes';
+
 export * from './AgendaItem';
 export * from './Body';
 export * from './Consultation';

@@ -13,9 +13,9 @@ export const setupTestDataBase = (databaseName: string) => {
         useUnifiedTopology: true,
         keepAlive: true,
       });
+      await mongoose.connection.dropDatabase();
     },
     afterAll: async () => {
-      await mongoose.connection.dropDatabase();
       await mongoose.connection.close();
       mongod.stop();
     },
@@ -28,10 +28,12 @@ export const basicImportTest = (
   createdSince?: Date,
   createdUntil?: Date,
 ) => {
+  const queue = undefined;
+
   return async () => {
-    const lt = await importer(testUrl, createdSince, createdUntil);
-    expect(lt).toBeDefined();
-    const json = lt?.toJSON();
+    const res = await importer(testUrl, queue, createdSince, createdUntil);
+    expect(res).toBeDefined();
+    const json = res?.toJSON();
     delete json?._id;
     expect(json).toMatchSnapshot();
   };

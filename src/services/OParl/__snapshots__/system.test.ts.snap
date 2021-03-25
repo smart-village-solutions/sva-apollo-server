@@ -3,7 +3,9 @@
 exports[`importing a system imports properly 1`] = `
 Object {
   "__v": 0,
-  "body": Array [],
+  "body": Array [
+    "https://www.lwl-pch.sitzung-online.de/oi/oparl/1.0/bodies.asp?id=2",
+  ],
   "contactEmail": "andreas.schreiber@kreis-lup.de",
   "contactName": "Andreas Schreiber",
   "externalId": "https://www.lwl-pch.sitzung-online.de/oi/oparl/1.0/system.asp",

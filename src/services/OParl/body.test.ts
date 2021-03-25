@@ -8,7 +8,8 @@ import { importBody } from './body';
 const helperFuncs = setupTestDataBase('test_body_import');
 
 // TODO: change test url to something within our control
-const testUrl = 'https://www.muenchen-transparent.de/oparl/v1.0/body/0';
+const testUrl =
+  'https://oparl.politik-bei-uns.de/body/5a73013af24bb7ed5127a72a';
 
 describe('importing a body', () => {
   beforeAll(helperFuncs.beforeAll);
@@ -18,7 +19,7 @@ describe('importing a body', () => {
     basicImportTest(
       importBody,
       testUrl,
-      new Date('2016-06-01T00:00:00.000Z'),
+      new Date('2016-06-02T12:00:00.000Z'),
       new Date('2018-05-31T00:00:00.000Z'),
     ),
   );

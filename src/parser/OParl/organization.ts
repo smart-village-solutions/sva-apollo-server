@@ -1,6 +1,7 @@
 import { isObjectLike } from 'lodash';
 
 import { parseDate } from '../dateParser';
+import { mapToIds } from '../parserHelpers';
 
 // only the necessary validation for parsing is done here.
 // the created database object will be validated after creation before saving
@@ -18,6 +19,8 @@ export const parseOrganization = (json) => {
 
       startDate: parseDate(json.startDate),
       endDate: parseDate(json.endDate),
+
+      meeting: mapToIds(json.meeting),
 
       location: json.location?.id,
     };

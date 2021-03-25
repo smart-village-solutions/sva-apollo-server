@@ -1,40 +1,64 @@
-import { fetch } from 'apollo-env';
-
 import { Paper } from '../../models';
 import { parsePaper } from '../../parser';
+import { getJson, updateOrCreateEntry } from './importHelpers';
+import { ImportQueue, ImportQueueEntry, ImportType } from './ImportTypes';
 
-// import flow
-// 1. fetch json
-// 2. create db object
-//   2.1. validation necessary for parsing (done in parser)
-//   2.2. parse json
-//   2.3. create object
-// 3. validate db object
-// 4. queue new related objects
-// 5. save to db
+export const importPaper = async (value: unknown, queue?: ImportQueue) => {
+  const json = await getJson(value);
 
-export const importPaper = async (url: string) => {
+  if (!json) return;
+
+  const addToQueue: [ImportQueueEntry | ImportQueueEntry[], ImportType][] = [];
+
+  if (json.auxiliaryFile) {
+    addToQueue.push([json.auxiliaryFile, ImportType.File]);
+  }
+
+  if (json.consultation) {
+    addToQueue.push([json.consultation, ImportType.Consultation]);
+  }
+
+  if (json.location) {
+    addToQueue.push([json.location, ImportType.Location]);
+  }
+
+  if (json.mainFile) {
+    addToQueue.push([json.mainFile, ImportType.File]);
+  }
+
+  if (json.originatorOrganization) {
+    addToQueue.push([json.originatorOrganization, ImportType.Organization]);
+  }
+
+  if (json.originatorPerson) {
+    addToQueue.push([json.originatorPerson, ImportType.Person]);
+  }
+
+  if (json.relatedPaper) {
+    addToQueue.push([json.relatedPaper, ImportType.Paper]);
+  }
+
+  if (json.subordinatedPaper) {
+    addToQueue.push([json.subordinatedPaper, ImportType.Paper]);
+  }
+
+  if (json.superordinatedPaper) {
+    addToQueue.push([json.superordinatedPaper, ImportType.Paper]);
+  }
+
+  if (json.underDirectionOf) {
+    addToQueue.push([json.underDirectionOf, ImportType.Organization]);
+  }
+
   try {
-    const response = await fetch(url);
-
-    if (response.ok) {
-      const json = await response.json();
-
-      // TODO: check for previous existence
-
-      const lt = new Paper(parsePaper(json));
-
-      await lt.validate();
-
-      // TODO: check for persons, organizations, consultation and files to import
-
-      return lt.save();
-    } else {
-      throw new Error(
-        `Error while fetching Paper from : ${url}! \n response.status: ${response.status}`,
-      );
-    }
+    return await updateOrCreateEntry(
+      json,
+      parsePaper,
+      Paper,
+      addToQueue,
+      queue,
+    );
   } catch (e) {
-    console.log(e);
+    console.log(`Error while importing paper from ${value}:`, e);
   }
 };
