@@ -1,20 +1,33 @@
-import { Body } from '../../models';
-import { importBody } from '../../services/OParl/body';
+import {
+  Body,
+  IBody,
+  LegislativeTerm,
+  Location,
+  Meeting,
+  Organization,
+  Paper,
+  Person,
+} from '../../models';
 
-export const findBody = async () => {
-  return Body.find();
+export const bodyResolvers = {
+  Query: {
+    oParlBodies: () => Body.find(),
+  },
+  OParlBody: {
+    organization: (args: IBody) =>
+      args.organization.map((value) =>
+        Organization.findOne({ externalId: value }),
+      ),
+    person: (args: IBody) =>
+      args.person.map((value) => Person.findOne({ externalId: value })),
+    meeting: (args: IBody) =>
+      args.meeting.map((value) => Meeting.findOne({ externalId: value })),
+    paper: (args: IBody) =>
+      args.paper.map((value) => Paper.findOne({ externalId: value })),
+    legislativeTerm: (args: IBody) =>
+      args.legislativeTerm.map((value) =>
+        LegislativeTerm.findOne({ externalId: value }),
+      ),
+    location: (args: IBody) => Location.findOne({ externalId: args.location }),
+  },
 };
-
-export const updateBody = async (_, { externalId, name }) => {
-  const body = await Body.findOne({ externalId });
-
-  const result = await body?.updateOne({ name });
-
-  // this currently returns the old body values, even after updating it
-  // however, after requerying it, it is updated.
-  // TODO: remove the body from the response?
-  return { body, success: !!result?.ok };
-};
-
-// this is here for testing purposes
-export const fetchOParlBody = importBody;

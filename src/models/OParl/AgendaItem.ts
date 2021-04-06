@@ -5,11 +5,11 @@ import { OParlBase, oParlBaseSchema } from './OParlBase';
 // does not use created modified deleted for OParl 1.0
 // FIXME: does have extra mandatory property "order" for OParl 1.1
 export interface IAgendaItem extends OParlBase {
-  meeting?: string;
+  meeting?: string; // externalId of a meeting
   number?: string; // number in the order of the meeting. could also be "VII" or "a)"
   name?: string;
   public?: boolean;
-  consultation?: string;
+  consultation?: string; // externalId of a consultation
   result?: string;
   resolutionText?: string;
   resolutionFile?: string; // externalId of the file object

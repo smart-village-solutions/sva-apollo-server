@@ -13,11 +13,11 @@ export interface IBody extends OParlBase {
   equivalent?: string[];
   contactEmail?: string;
   contactName?: string;
-  organization: string[];
-  person: string[];
-  meeting: string[];
-  paper: string[];
-  legislativeTerm: string[];
+  organization: string[]; // array of externalIds of organizations
+  person: string[]; // array of externalIds of persons
+  meeting: string[]; // array of externalIds of meetings
+  paper: string[]; // array of externalIds of papers
+  legislativeTerm: string[]; // array of externalIds of legislative terms
   classification?: string;
   location?: string; // externalId of the location object
 }

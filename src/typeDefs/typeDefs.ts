@@ -2,7 +2,20 @@ import { gql } from 'apollo-server-core';
 import { constructionSiteGQL } from './constructionSite';
 import { dateGQL } from './date';
 import { locationGQL } from './location';
-import { bodyGQL } from './OParl';
+import {
+  agendaItemGQL,
+  bodyGQL,
+  consultationGQL,
+  fileGQL,
+  legislativeTermGQL,
+  locationGQL as oParlLocationGQL,
+  meetingGQL,
+  membershipGQL,
+  organizationGQL,
+  paperGQL,
+  personGQL,
+  systemGQL,
+} from './OParl';
 import { roadworkGQL } from './roadwork';
 
 const _baseGQL = gql`
@@ -19,9 +32,20 @@ const _baseGQL = gql`
 
 export const typeDefs = [
   _baseGQL, // query and mutation need to be first, because their types are extended by others
+  agendaItemGQL,
   bodyGQL,
   constructionSiteGQL,
+  consultationGQL,
   dateGQL,
+  fileGQL,
+  legislativeTermGQL,
+  oParlLocationGQL,
+  meetingGQL,
+  membershipGQL,
   locationGQL,
+  organizationGQL,
+  paperGQL,
+  personGQL,
   roadworkGQL,
+  systemGQL,
 ];

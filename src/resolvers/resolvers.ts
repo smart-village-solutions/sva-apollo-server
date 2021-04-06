@@ -1,6 +1,21 @@
+import { merge } from 'lodash';
+
 import { constructionSites, createConstructionSite } from './constructionSite';
 import { dateScalar } from './date';
-import { findBody, updateBody } from './OParl/body';
+import {
+  agendaItemResolvers,
+  bodyResolvers,
+  consultationResolvers,
+  fileResolvers,
+  legislativeTermResolvers,
+  locationResolvers,
+  meetingResolvers,
+  membershipResolvers,
+  organizationResolvers,
+  paperResolvers,
+  personResolvers,
+  systemResolvers,
+} from './OParl';
 import {
   createRoadwork,
   deleteRoadwork,
@@ -8,18 +23,34 @@ import {
   updateRoadwork,
 } from './roadwork';
 
-export const resolvers = {
+// TODO: extract the remaining resolvers
+const baseResolvers = {
   Date: dateScalar,
   Query: {
     constructionSites,
     roadworks: findRoadwork,
-    oParlBodies: findBody,
   },
   Mutation: {
     createConstructionSite,
     createRoadwork,
     deleteRoadwork,
     updateRoadwork,
-    updateBody,
   },
 };
+
+export const resolvers = merge(
+  {},
+  agendaItemResolvers,
+  baseResolvers,
+  bodyResolvers,
+  consultationResolvers,
+  fileResolvers,
+  legislativeTermResolvers,
+  locationResolvers,
+  meetingResolvers,
+  membershipResolvers,
+  organizationResolvers,
+  paperResolvers,
+  personResolvers,
+  systemResolvers,
+);
