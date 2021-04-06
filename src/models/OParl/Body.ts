@@ -17,7 +17,7 @@ export interface IBody extends OParlBase {
   person: string[]; // array of externalIds of persons
   meeting: string[]; // array of externalIds of meetings
   paper: string[]; // array of externalIds of papers
-  legislativeTerm: string[]; // array of externalIds of organizations
+  legislativeTerm: string[]; // array of externalIds of legislative terms
   classification?: string;
   location?: string; // externalId of the location object
 }
