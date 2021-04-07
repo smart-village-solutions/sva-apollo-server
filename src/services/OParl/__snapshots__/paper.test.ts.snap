@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`importing a paper imports properly 1`] = `
+exports[`importing a paper imports properly for 1.0 1`] = `
 Object {
   "__v": 0,
   "auxiliaryFile": Array [],
@@ -29,5 +29,37 @@ Object {
     "https://www.lwl-pch.sitzung-online.de/oi/oparl/1.0/organizations.asp?typ=at&id=1",
   ],
   "web": "https://www.lwl-pch.sitzung-online.de/bi/vo020.asp?VOLFDNR=1198",
+}
+`;
+
+exports[`importing a paper imports properly for 1.0 2`] = `
+Object {
+  "__v": 0,
+  "auxiliaryFile": Array [],
+  "body": "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1",
+  "consultation": Array [
+    "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/consultation/73",
+    "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/consultation/72",
+  ],
+  "created": 2015-09-09T14:01:05.000Z,
+  "date": 2015-10-01T00:00:00.000Z,
+  "externalId": "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/paper/61",
+  "keyword": Array [],
+  "location": Array [],
+  "mainFile": "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/file/1-1285",
+  "modified": 2015-09-09T14:01:05.000Z,
+  "name": "Prüfung des Jahresabschlusses zum 31.12.2014 gem. § 101 der Gemeindeordnung",
+  "originatorOrganization": Array [],
+  "originatorPerson": Array [],
+  "paperType": "Beschlussvorlage",
+  "reference": "VL-1/2015",
+  "relatedPaper": Array [],
+  "subordinatedPaper": Array [],
+  "superordinatedPaper": Array [],
+  "type": "https://schema.oparl.org/1.1/Paper",
+  "underDirectionOf": Array [
+    "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/organization/3-2",
+  ],
+  "web": "https://sdnetrim.kdvz-frechen.de/rim4883/vorgang/?__=UGhVM0hpd2NXNFdFcExjZfP67Id3q2MVIi7RC6r_Q1E",
 }
 `;

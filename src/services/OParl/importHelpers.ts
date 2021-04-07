@@ -41,10 +41,6 @@ export const updateOrCreateEntry = async (
     : undefined;
 
   if (entry) {
-    console.log(
-      'entry already exists:',
-      isString(entry) ? entry : entry.externalId,
-    );
     entry.overwrite(parsedJson);
   } else {
     entry = new model(parsedJson);

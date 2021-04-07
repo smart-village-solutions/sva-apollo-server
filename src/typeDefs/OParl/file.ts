@@ -1,21 +1,13 @@
 import { gql } from 'apollo-server-core';
 
+import { oParlBase } from './oParlBase';
+
 export const fileGQL = gql`
   extend type Query {
     oParlFiles: [OParlFile!]
   }
 
   type OParlFile {
-    id: ID!
-    "id from the oparl object = url where the json is located"
-    externalId: String!
-    "oParl type = url where the type is specified"
-    type: String!
-    created: Date
-    modified: Date
-    keyword: [String!]
-    web: String
-    deleted: Boolean
     accessUrl: String!
     agendaItem: [OParlAgendaItem!]
     date: Date
@@ -30,7 +22,9 @@ export const fileGQL = gql`
     name: String
     paper: [OParlPaper!]
     sha1Checksum: String
+    sha512Checksum: String
     size: Int
     text: String
+    ${oParlBase}
   }
 `;

@@ -21,6 +21,7 @@ const maximalInput: IMeeting = {
   modified: new Date(),
   web: 'w',
   keyword: ['first', 'second'],
+  license: 'l',
 };
 
 const minimalInput: IMeeting = {
@@ -88,6 +89,7 @@ describe('creating a Meeting', () => {
     expect(meeting.keyword?.toString()).toEqual(
       maximalInput.keyword?.toString(),
     );
+    expect(meeting).toHaveProperty('license', maximalInput.license);
   });
 
   it('fails to validate after creating a Meeting without required values', async () => {

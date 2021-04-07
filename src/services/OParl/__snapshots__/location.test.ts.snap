@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`importing a location imports properly 1`] = `
+exports[`importing a location imports properly for 1.0 1`] = `
 Object {
   "__v": 0,
   "bodies": Array [
@@ -15,8 +15,34 @@ Object {
   "modified": 2020-12-11T10:51:00.000Z,
   "organization": Array [],
   "papers": Array [],
+  "persons": Array [],
   "postalCode": "41366",
   "streetAddress": "An Haus Clee 32",
   "type": "https://schema.oparl.org/1.0/Location",
+}
+`;
+
+exports[`importing a location imports properly for 1.1 1`] = `
+Object {
+  "__v": 0,
+  "bodies": Array [
+    "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1",
+  ],
+  "created": 2015-03-18T15:57:34.000Z,
+  "description": "Klutenbrinkstr. 5, 33449 Langenberg",
+  "externalId": "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/location/1-15",
+  "keyword": Array [],
+  "locality": "Langenberg",
+  "meeting": Array [],
+  "modified": 2020-11-11T23:00:00.000Z,
+  "organization": Array [
+    "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/organization/1-2",
+  ],
+  "papers": Array [],
+  "persons": Array [],
+  "postalCode": "33449",
+  "streetAddress": "Klutenbrinkstr. 5",
+  "type": "https://schema.oparl.org/1.1/Location",
+  "web": "",
 }
 `;

@@ -7,6 +7,7 @@ export interface IOrganization extends OParlBase {
   name?: string;
   membership?: string[]; // array of external ids of memberships
   meeting?: string[]; // array of external ids of meetings
+  consultation?: string[]; // array of external ids of consultations (OParl 1.1 only)
   shortName?: string;
   post?: string[];
   subOrganizationOf?: string; // externalId of an organization
@@ -28,6 +29,7 @@ const OrganizationSchema = new Schema<IOrganizationSchema>(
     name: String,
     membership: optionalStringArray,
     meeting: optionalStringArray,
+    consultation: optionalStringArray,
     shortName: String,
     post: optionalStringArray,
     subOrganizationOf: String,

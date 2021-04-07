@@ -11,9 +11,20 @@ export interface ILocation extends OParlBase {
   subLocality?: string;
   locality?: string;
   bodies?: string[]; // array of externalIds of the body objects
-  organization?: string[]; // array of externalIds of the organization objects
-  meeting?: string[]; // array of externalIds of the meeting objects
+
+  // array of externalIds of the organization objects
+  // for OParl 1.1 the field is renamed to plural. we map to singular during the import
+  // to maintain compatability with 1.0
+  // (in addition to that some external oparl systems did not implement this rename)
+  organization?: string[];
+
+  // array of externalIds of the meeting objects
+  // for OParl 1.1 the field is renamed to plural. we map to singular during the import
+  // to maintain compatability with 1.0
+  // (in addition to that some external oparl systems did not implement this rename)
+  meeting?: string[];
   papers?: string[]; // array of externalIds of the paper objects
+  persons?: string[]; // array of externalIds of the person objects; OParl 1.1 only
 }
 
 interface ILocationSchema extends ILocation, Document {}
@@ -32,6 +43,7 @@ const LocationSchema = new Schema<ILocationSchema>(
     organization: optionalStringArray,
     meeting: optionalStringArray,
     papers: optionalStringArray,
+    persons: optionalStringArray,
   }),
 );
 

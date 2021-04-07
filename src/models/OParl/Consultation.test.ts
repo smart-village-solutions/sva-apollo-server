@@ -14,6 +14,7 @@ const maximalInput: IConsultation = {
   modified: new Date(),
   web: 'w',
   keyword: ['first', 'second'],
+  license: 'l',
 };
 
 const minimalInput: IConsultation = {
@@ -62,6 +63,7 @@ describe('creating a Consultation', () => {
     expect(consultation.keyword?.toString()).toEqual(
       maximalInput.keyword?.toString(),
     );
+    expect(consultation).toHaveProperty('license', maximalInput.license);
   });
 
   it('fails to validate after creating a Consultation without required values', async () => {

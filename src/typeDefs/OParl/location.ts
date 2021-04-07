@@ -1,21 +1,13 @@
 import { gql } from 'apollo-server-core';
 
+import { oParlBase } from './oParlBase';
+
 export const locationGQL = gql`
   extend type Query {
     oParlLocations: [OParlLocation!]
   }
 
   type OParlLocation {
-    id: ID!
-    "id from the oparl object = url where the json is located"
-    externalId: String!
-    "oParl type = url where the type is specified"
-    type: String!
-    created: Date
-    modified: Date
-    keyword: [String!]
-    web: String
-    deleted: Boolean
     bodies: [OParlBody!]
     description: String
     geojson: String
@@ -23,9 +15,11 @@ export const locationGQL = gql`
     meeting: [OParlMeeting!]
     organization: [OParlOrganization!]
     papers: [OParlPaper!]
+    persons: [OParlPerson!]
     postalCode: String
     room: String
     streetAddress: String
     subLocality: String
+    ${oParlBase}
   }
 `;

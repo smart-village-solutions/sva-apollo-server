@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`importing a meeting imports properly 1`] = `
+exports[`importing a meeting imports properly for 1.0 1`] = `
 Object {
   "__v": 0,
   "agendaItem": Array [
@@ -32,5 +32,33 @@ Object {
   "start": 2004-11-16T18:00:00.000Z,
   "type": "https://schema.oparl.org/1.0/Meeting",
   "web": "https://ris.schwalmtal.de/tops/?__=UGhVM0hpd2NXNFdFcExjZcG8mlSHys8pcEOe79OBc6U",
+}
+`;
+
+exports[`importing a meeting imports properly for 1.1 1`] = `
+Object {
+  "__v": 0,
+  "agendaItem": Array [
+    "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/agendaitem/1541",
+    "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/agendaitem/1548",
+  ],
+  "auxiliaryFile": Array [],
+  "created": 2015-03-19T15:32:25.000Z,
+  "end": 2015-05-28T17:45:00.000Z,
+  "externalId": "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/meeting/459",
+  "invitation": "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/file/1-1453",
+  "keyword": Array [
+    "Ausschuss für Jugend, Familie und Senioren (3. Sitzung)",
+  ],
+  "location": "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/location/2-1",
+  "modified": 2015-10-08T09:02:26.000Z,
+  "name": "Ausschuss für Jugend, Familie und Senioren (3. Sitzung)",
+  "organization": Array [
+    "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/organization/1-4",
+  ],
+  "participant": Array [],
+  "start": 2015-05-28T16:00:00.000Z,
+  "type": "https://schema.oparl.org/1.1/Meeting",
+  "web": "https://sdnetrim.kdvz-frechen.de/rim4883/tops/?__=UGhVM0hpd2NXNFdFcExjZZ6jSNgLtfe98IBGzP-n8n4",
 }
 `;

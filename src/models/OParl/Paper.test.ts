@@ -23,6 +23,7 @@ const maximalInput: IPaper = {
   modified: new Date(),
   web: 'w',
   keyword: ['first', 'second'],
+  license: 'l',
 };
 
 const minimalInput: IPaper = {
@@ -99,6 +100,7 @@ describe('creating a Paper', () => {
     expect(paper).toHaveProperty('web', maximalInput.web);
     expect(paper.keyword).toHaveLength(2);
     expect(paper.keyword?.toString()).toEqual(maximalInput.keyword?.toString());
+    expect(paper).toHaveProperty('license', maximalInput.license);
   });
 
   it('fails to validate after creating a Paper without required values', async () => {

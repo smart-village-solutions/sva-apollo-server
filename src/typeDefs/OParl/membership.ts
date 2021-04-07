@@ -1,21 +1,13 @@
 import { gql } from 'apollo-server-core';
 
+import { oParlBase } from './oParlBase';
+
 export const membershipGQL = gql`
   extend type Query {
     oParlMemberships: [OParlMembership!]
   }
 
   type OParlMembership {
-    id: ID!
-    "id from the oparl object = url where the json is located"
-    externalId: String!
-    "oParl type = url where the type is specified"
-    type: String!
-    created: Date
-    modified: Date
-    keyword: [String!]
-    web: String
-    deleted: Boolean
     endDate: Date
     onBehalfOf: OParlOrganization
     organization: OParlOrganization
@@ -23,5 +15,6 @@ export const membershipGQL = gql`
     role: String
     startDate: Date
     votingRight: Boolean
+    ${oParlBase}
   }
 `;

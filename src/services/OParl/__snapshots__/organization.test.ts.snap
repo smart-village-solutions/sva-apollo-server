@@ -1,10 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`importing an organization imports properly 1`] = `
+exports[`importing an organization imports properly for 1.0 1`] = `
 Object {
   "__v": 0,
   "body": "https://oparl.politik-bei-uns.de/body/5a73013af24bb7ed5127a72a",
   "classification": "Ausschuss",
+  "consultation": Array [],
   "created": 2016-10-06T10:00:00.000Z,
   "externalId": "https://oparl.politik-bei-uns.de/organization/5a73013bf24bb7ed5127a7df",
   "keyword": Array [],
@@ -37,5 +38,41 @@ Object {
   "shortName": "BA",
   "startDate": 2016-10-06T00:00:00.000Z,
   "type": "https://schema.oparl.org/1.0/Organization",
+}
+`;
+
+exports[`importing an organization imports properly for 1.1 1`] = `
+Object {
+  "__v": 0,
+  "body": "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1",
+  "classification": "Ausschüsse",
+  "consultation": Array [],
+  "created": 2015-03-18T16:05:27.000Z,
+  "externalId": "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/organization/1-3",
+  "keyword": Array [],
+  "location": "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/location/1-3",
+  "meeting": Array [],
+  "membership": Array [
+    "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/membership/187-1-3-94",
+    "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/membership/205-1-3-53",
+    "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/membership/8-1-3-59",
+    "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/membership/195-1-3-77",
+    "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/membership/45-1-3-80",
+    "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/membership/206-1-3-183",
+    "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/membership/191-1-3-187",
+  ],
+  "modified": 2017-05-04T22:00:00.000Z,
+  "name": "Rechnungsprüfungsausschuss",
+  "organizationType": "Gremium",
+  "post": Array [
+    "Vorsitzende/r",
+    "stellv. Vorsitzende/r",
+    "Mitglied",
+  ],
+  "shortName": "RPA",
+  "startDate": 1950-01-01T00:00:00.000Z,
+  "type": "https://schema.oparl.org/1.1/Organization",
+  "web": "https://sdnetrim.kdvz-frechen.de/rim4883/gremien/?__=UGhVM0hpd2NXNFdFcExjZdagC1p12Ukom34sARBPmlg",
+  "website": "",
 }
 `;

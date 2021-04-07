@@ -25,6 +25,12 @@ const maximalInput: IBody = {
   rgs: 'rgs',
   web: 'w',
   website: 'ws',
+  agendaItem: ['a1', 'a2'],
+  consultation: ['c1', 'c2'],
+  file: ['f1', 'f2'],
+  legislativeTermList: ['l1', 'l2'],
+  locationList: ['lo1', 'lo2'],
+  membership: ['me1', 'me2'],
 };
 
 const minimalInput: IBody = {
@@ -112,6 +118,28 @@ describe('creating a Body', () => {
     expect(body).toHaveProperty('rgs', maximalInput.rgs);
     expect(body).toHaveProperty('web', maximalInput.web);
     expect(body).toHaveProperty('website', maximalInput.website);
+    expect(body.agendaItem).toHaveLength(2);
+    expect(body.agendaItem?.toString()).toEqual(
+      maximalInput.agendaItem?.toString(),
+    );
+    expect(body.consultation).toHaveLength(2);
+    expect(body.consultation?.toString()).toEqual(
+      maximalInput.consultation?.toString(),
+    );
+    expect(body.file).toHaveLength(2);
+    expect(body.file?.toString()).toEqual(maximalInput.file?.toString());
+    expect(body.legislativeTermList).toHaveLength(2);
+    expect(body.legislativeTermList?.toString()).toEqual(
+      maximalInput.legislativeTermList?.toString(),
+    );
+    expect(body.locationList).toHaveLength(2);
+    expect(body.locationList?.toString()).toEqual(
+      maximalInput.locationList?.toString(),
+    );
+    expect(body.membership).toHaveLength(2);
+    expect(body.membership?.toString()).toEqual(
+      maximalInput.membership?.toString(),
+    );
   });
 
   it('fails to validate after creating a Body without required values', async () => {

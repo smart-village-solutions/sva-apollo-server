@@ -27,6 +27,15 @@ export const parseBody = (json) => {
 
       person: mapToIds(json.person),
       paper: mapToIds(json.paper),
+
+      location: json.location?.id,
+
+      legislativeTermList: mapToIds(json.legislativeTermList),
+      agendaItem: mapToIds(json.agendaItem),
+      consultation: mapToIds(json.consultation),
+      file: mapToIds(json.file),
+      membership: mapToIds(json.membership),
+      locationList: mapToIds(json.locationList),
     };
   }
 };
