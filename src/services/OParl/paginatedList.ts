@@ -26,11 +26,13 @@ export const fetchPaginatedOParlList = async (
     try {
       const response = await (await fetch(next)).json();
 
+      console.log(next);
+
       if (response?.data?.length) {
         result.push(...response.data);
       }
 
-      next = response?.pagination?.next;
+      next = response?.links?.next;
     } catch (e) {
       console.log(`Error while fetching paginated OParl list from ${next}:`, e);
       next = undefined;

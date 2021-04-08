@@ -16,7 +16,7 @@ const testUrl2 =
 describe('importing a body', () => {
   beforeAll(async () => {
     await helperFuncs.beforeAll();
-    jest.setTimeout(20000);
+    jest.setTimeout(30000);
   });
 
   it(
@@ -24,8 +24,8 @@ describe('importing a body', () => {
     basicImportTest(
       importBody,
       testUrl,
-      new Date('2016-06-02T12:00:00.000Z'),
-      new Date('2018-05-31T00:00:00.000Z'),
+      new Date('2017-05-01'),
+      new Date('2017-05-31'),
     ),
   );
 
@@ -34,8 +34,8 @@ describe('importing a body', () => {
     basicImportTest(
       importBody,
       testUrl2,
-      new Date('2016-06-02T12:00:00.000Z'),
-      new Date('2016-07-31T00:00:00.000Z'),
+      new Date('2016-06-02'),
+      new Date('2016-07-31'),
     ),
   );
 

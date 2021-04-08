@@ -22,47 +22,20 @@ const getId = (value: [ImportQueueEntry, ImportType]) => {
   return value[0].id;
 };
 
-export const preferId = (
-  valueToCheck: [ImportQueueEntry, ImportType],
-  index: number,
-  entries: [ImportQueueEntry, ImportType][],
-): boolean => {
-  const id = getId(valueToCheck);
-
-  // find the first index of a non string entry that has the id
-  const nonStringIndex = entries.findIndex(
-    (entry) => getId(entry) === id && !isString(entry),
-  );
-
-  // find the first index of an entry that has the id
-  const maybeStringIndex = entries.findIndex((entry) => getId(entry) === id);
-
-  // if there is a non string entry then the nonStringIndex
-  // is greater than or equal to the maybeStringIndex
-  // otherwise it is -1
-
-  // the maybeStringIndex is always at most the current index
-  // but always non negative because the valueToCheck has its own id
-
-  // that means that the maximum of the two indices is always the
-  // first index of a non string value that has the id, if it exists,
-  // and the first index of a string value that has the id, if no
-  // non string value that has the id exists
-  return Math.max(nonStringIndex, maybeStringIndex) === index;
+const preferFullEntry = (a: [ImportQueueEntry, ImportType]) => {
+  return !isString(a[0]);
 };
 
-const relateToSameId = (
-  a: [ImportQueueEntry, ImportType],
-  b: [ImportQueueEntry, ImportType],
-) => getId(a) === getId(b);
-
-export const importOParl = async (systemUrl: string) => {
+export const importOParl = async (
+  entryUrl: string,
+  entryType = ImportType.System,
+) => {
   // TODO: get last import date
 
   // use a queue that saves the importer function which should be used with the corresponding url
   const importQueue: ImportQueue = new UniqueQueue<
     [ImportQueueEntry, ImportType]
-  >([[systemUrl, ImportType.System]], preferId, relateToSameId);
+  >(getId, preferFullEntry, [[entryUrl, entryType]]);
 
   let next = importQueue.next();
 
