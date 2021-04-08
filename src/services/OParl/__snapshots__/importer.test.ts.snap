@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the filterDuplicateFunction filters as expected 1`] = `
+Array [
+  Array [
+    "asd",
+    "Body",
+  ],
+  Array [
+    Object {
+      "id": "wasd",
+      "other": "asd",
+    },
+    "Body",
+  ],
+]
+`;

@@ -1,11 +1,11 @@
-import { fetch } from 'apollo-env';
-
 import { System } from '../../models';
 import { parseSystem } from '../../parser';
+import { getJson, updateOrCreateEntry } from './importHelpers';
+import { ImportQueue, ImportQueueEntry, ImportType } from './ImportTypes';
 import { fetchPaginatedOParlList } from './paginatedList';
 
 // import flow
-// 1. fetch json
+// 1. fetch json if it was not already the whole json
 // 2. create db object
 //   2.1. validation necessary for parsing (done in parser)
 //   2.2. parse json
@@ -14,31 +14,27 @@ import { fetchPaginatedOParlList } from './paginatedList';
 // 4. queue new related objects
 // 5. save to db
 
-export const importSystem = async (url: string) => {
+export const importSystem = async (value: unknown, queue?: ImportQueue) => {
+  const json = await getJson(value);
+
+  if (!json) return;
+
+  const addToQueue: [ImportQueueEntry | ImportQueueEntry[], ImportType][] = [];
+
+  if (json.body) {
+    json.body = await fetchPaginatedOParlList(json.body);
+    addToQueue.push([json.body, ImportType.Body]);
+  }
+
   try {
-    const response = await fetch(url);
-
-    if (response.ok) {
-      const json = await response.json();
-
-      // TODO: check for previous existence
-      if (json?.body) {
-        json.body = await fetchPaginatedOParlList(json.body);
-      }
-
-      const lt = new System(parseSystem(json));
-
-      await lt.validate();
-
-      // TODO: check for memberships, location and body to import
-
-      return lt.save();
-    } else {
-      throw new Error(
-        `Error while fetching System from : ${url}! \n response.status: ${response.status}`,
-      );
-    }
+    return await updateOrCreateEntry(
+      json,
+      parseSystem,
+      System,
+      addToQueue,
+      queue,
+    );
   } catch (e) {
-    console.log(e);
+    console.log(`Error while importing system from ${value}:`, e);
   }
 };

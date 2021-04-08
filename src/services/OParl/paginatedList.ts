@@ -5,7 +5,6 @@ import {
   formatCreatedSince,
   formatCreatedUntil,
 } from '../../helpers';
-import { mapToIds } from '../../parser/parserHelpers';
 
 // TODO: improve importing of paginated lists -> import/update entries directly as they are already available
 
@@ -21,8 +20,6 @@ export const fetchPaginatedOParlList = async (
     formatCreatedUntil(createdUntil),
   );
 
-  console.log(next);
-
   const result: string[] = [];
 
   while (next) {
@@ -30,7 +27,7 @@ export const fetchPaginatedOParlList = async (
       const response = await (await fetch(next)).json();
 
       if (response?.data?.length) {
-        result.push(...mapToIds(response.data));
+        result.push(...response.data);
       }
 
       next = response?.pagination?.next;
