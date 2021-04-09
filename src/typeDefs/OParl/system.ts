@@ -3,11 +3,11 @@ import { oParlBase } from './oParlBase';
 
 export const systemGQL = gql`
   extend type Query {
-    oParlSystems: [OParlSystem!]
+    oParlSystems(externalIds: [String!]): [OParlSystem!]
   }
 
   type OParlSystem {
-    body: [OParlBody!]
+    body(offset: Int, pageSize: Int): [OParlBody!]
     oparlVersion: String!
     contactEmail: String
     contactName: String

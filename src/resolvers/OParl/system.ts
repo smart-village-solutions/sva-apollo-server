@@ -1,11 +1,16 @@
 import { Body, ISystem, System } from '../../models';
+import { findByIds, getPaginatedEntriesByIds } from '../resolverHelpers';
 
 export const systemResolvers = {
   Query: {
-    oParlSystems: () => System.find(),
+    oParlSystems: (_, args: { externalIds?: string[] }) =>
+      args.externalIds ? findByIds(args.externalIds, System) : System.find(),
   },
   OParlSystem: {
-    body: (args: ISystem) =>
-      args.body.map((value) => Body.findOne({ externalId: value })),
+    body: async (
+      parent: ISystem,
+      args: { offset?: number; pageSize?: number },
+    ) =>
+      getPaginatedEntriesByIds(Body, parent.body, args.offset, args.pageSize),
   },
 };
