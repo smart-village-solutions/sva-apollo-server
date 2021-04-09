@@ -4,7 +4,7 @@ import { oParlBase } from './oParlBase';
 
 export const organizationGQL = gql`
   extend type Query {
-    oParlOrganizations: [OParlOrganization!]
+    oParlOrganizations(externalIds: [String!]): [OParlOrganization!]
   }
 
   type OParlOrganization {
@@ -13,9 +13,9 @@ export const organizationGQL = gql`
     endDate: Date
     externalBody: String
     location: OParlLocation
-    meeting: [OParlMeeting!]
-    membership: [OParlMembership!]
-    consultation: [OParlConsultation!]
+    meeting(offset: Int, pageSize: Int): [OParlMeeting!]
+    membership(offset: Int, pageSize: Int): [OParlMembership!]
+    consultation(offset: Int, pageSize: Int): [OParlConsultation!]
     name: String
     organizationType: String
     post: [String!]
