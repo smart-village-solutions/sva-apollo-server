@@ -4,7 +4,7 @@ import { oParlBase } from './oParlBase';
 
 export const membershipGQL = gql`
   extend type Query {
-    oParlMemberships: [OParlMembership!]
+    oParlMemberships(externalIds: [String!]): [OParlMembership!]
   }
 
   type OParlMembership {
