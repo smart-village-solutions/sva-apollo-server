@@ -8,16 +8,16 @@ export const meetingGQL = gql`
   }
 
   type OParlMeeting {
-    agendaItem: [OParlAgendaItem!]
-    auxiliaryFile: [OParlFile!]
+    agendaItem(offset: Int, pageSize: Int): [OParlAgendaItem!]
+    auxiliaryFile(offset: Int, pageSize: Int): [OParlFile!]
     cancelled: Boolean
     end: Date
     invitation: OParlFile
     location: OParlLocation
     meetingState: String
     name: String
-    organization: [OParlOrganization!]
-    participant: [OParlPerson!]
+    organization(offset: Int, pageSize: Int): [OParlOrganization!]
+    participant(offset: Int, pageSize: Int): [OParlPerson!]
     resultsProtocol: OParlFile
     start: Date
     verbatimProtocol: OParlFile
