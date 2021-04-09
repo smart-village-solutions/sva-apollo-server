@@ -4,11 +4,11 @@ import { oParlBase } from './oParlBase';
 
 export const agendaItemGQL = gql`
   extend type Query {
-    oParlAgendaItems: [OParlAgendaItem!]
+    oParlAgendaItems(externalIds: [String!]): [OParlAgendaItem!]
   }
 
   type OParlAgendaItem {
-    auxiliaryFile: [OParlFile!]
+    auxiliaryFile(offset: Int, pageSize: Int): [OParlFile!]
     consultation: OParlConsultation
     end: Date
     meeting: OParlMeeting
