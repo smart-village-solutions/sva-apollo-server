@@ -4,7 +4,7 @@ import { oParlBase } from './oParlBase';
 
 export const paperGQL = gql`
   extend type Query {
-    oParlPapers: [OParlPaper!]
+    oParlPapers(externalIds: [String!]): [OParlPaper!]
   }
 
   type OParlPaper {
@@ -13,16 +13,16 @@ export const paperGQL = gql`
     reference: String
     date: Date
     paperType: String
-    relatedPaper: [OParlPaper!]
-    superordinatedPaper: [OParlPaper!]
-    subordinatedPaper: [OParlPaper!]
+    relatedPaper(offset: Int, pageSize: Int): [OParlPaper!]
+    superordinatedPaper(offset: Int, pageSize: Int): [OParlPaper!]
+    subordinatedPaper(offset: Int, pageSize: Int): [OParlPaper!]
     mainFile: OParlFile
-    auxiliaryFile: [OParlFile!]
-    location: [OParlLocation!]
-    originatorPerson: [OParlPerson!]
-    underDirectionOf: [OParlOrganization!]
-    originatorOrganization: [OParlOrganization!]
-    consultation: [OParlConsultation!]
+    auxiliaryFile(offset: Int, pageSize: Int): [OParlFile!]
+    location(offset: Int, pageSize: Int): [OParlLocation!]
+    originatorPerson(offset: Int, pageSize: Int): [OParlPerson!]
+    underDirectionOf(offset: Int, pageSize: Int): [OParlOrganization!]
+    originatorOrganization(offset: Int, pageSize: Int): [OParlOrganization!]
+    consultation(offset: Int, pageSize: Int): [OParlConsultation!]
     ${oParlBase}
   }
 `;
