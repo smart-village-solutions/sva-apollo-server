@@ -1,33 +1,129 @@
 import {
+  AgendaItem,
   Body,
+  Consultation,
   IBody,
   LegislativeTerm,
   Location,
   Meeting,
+  Membership,
   Organization,
   Paper,
   Person,
 } from '../../models';
+import { findByIds, getPaginatedEntriesByIds } from '../resolverHelpers';
 
 export const bodyResolvers = {
   Query: {
-    oParlBodies: () => Body.find(),
+    oParlBodies: (_, args: { externalIds?: string[] }) =>
+      args.externalIds ? findByIds(args.externalIds, Body) : Body.find(),
   },
   OParlBody: {
-    organization: (args: IBody) =>
-      args.organization.map((value) =>
-        Organization.findOne({ externalId: value }),
+    agendaItem: async (
+      parent: IBody,
+      args: { offset?: number; pageSize?: number },
+    ) =>
+      getPaginatedEntriesByIds(
+        AgendaItem,
+        parent.agendaItem,
+        args.offset,
+        args.pageSize,
       ),
-    person: (args: IBody) =>
-      args.person.map((value) => Person.findOne({ externalId: value })),
-    meeting: (args: IBody) =>
-      args.meeting.map((value) => Meeting.findOne({ externalId: value })),
-    paper: (args: IBody) =>
-      args.paper.map((value) => Paper.findOne({ externalId: value })),
-    legislativeTerm: (args: IBody) =>
-      args.legislativeTerm.map((value) =>
-        LegislativeTerm.findOne({ externalId: value }),
+
+    consultation: async (
+      parent: IBody,
+      args: { offset?: number; pageSize?: number },
+    ) =>
+      getPaginatedEntriesByIds(
+        Consultation,
+        parent.consultation,
+        args.offset,
+        args.pageSize,
       ),
-    location: (args: IBody) => Location.findOne({ externalId: args.location }),
+
+    legislativeTerm: async (
+      parent: IBody,
+      args: { offset?: number; pageSize?: number },
+    ) =>
+      getPaginatedEntriesByIds(
+        LegislativeTerm,
+        parent.legislativeTerm,
+        args.offset,
+        args.pageSize,
+      ),
+
+    legislativeTermList: async (
+      parent: IBody,
+      args: { offset?: number; pageSize?: number },
+    ) =>
+      getPaginatedEntriesByIds(
+        LegislativeTerm,
+        parent.legislativeTermList,
+        args.offset,
+        args.pageSize,
+      ),
+
+    location: (parent: IBody) =>
+      Location.findOne({ externalId: parent.location }),
+    locationList: async (
+      parent: IBody,
+      args: { offset?: number; pageSize?: number },
+    ) =>
+      getPaginatedEntriesByIds(
+        Location,
+        parent.locationList,
+        args.offset,
+        args.pageSize,
+      ),
+
+    meeting: async (
+      parent: IBody,
+      args: { offset?: number; pageSize?: number },
+    ) =>
+      getPaginatedEntriesByIds(
+        Meeting,
+        parent.meeting,
+        args.offset,
+        args.pageSize,
+      ),
+
+    membership: async (
+      parent: IBody,
+      args: { offset?: number; pageSize?: number },
+    ) =>
+      getPaginatedEntriesByIds(
+        Membership,
+        parent.membership,
+        args.offset,
+        args.pageSize,
+      ),
+
+    organization: async (
+      parent: IBody,
+      args: { offset?: number; pageSize?: number },
+    ) =>
+      getPaginatedEntriesByIds(
+        Organization,
+        parent.organization,
+        args.offset,
+        args.pageSize,
+      ),
+
+    paper: async (
+      parent: IBody,
+      args: { offset?: number; pageSize?: number },
+    ) =>
+      getPaginatedEntriesByIds(Paper, parent.paper, args.offset, args.pageSize),
+
+    person: async (
+      parent: IBody,
+      args: { offset?: number; pageSize?: number },
+    ) =>
+      getPaginatedEntriesByIds(
+        Person,
+        parent.person,
+        args.offset,
+        args.pageSize,
+      ),
   },
 };
