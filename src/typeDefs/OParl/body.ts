@@ -8,10 +8,6 @@ export const bodyGQL = gql`
     oParlBodies(externalIds: [String!]): [OParlBody!]
   }
 
-  extend type Mutation {
-    updateBody(externalId: String!, name: String!): UpdateBodyResponse
-  }
-
   type OParlBody {
     name: String!
     website: String
@@ -36,11 +32,5 @@ export const bodyGQL = gql`
     location: OParlLocation
     locationList(offset: Int, pageSize: Int): [OParlLocation!]
     ${oParlBase}
-  }
-
-  "TODO: either remove the ability to mutate oparl object via graphql or refine it"
-  type UpdateBodyResponse {
-    body: OParlBody
-    success: Boolean
   }
 `;
