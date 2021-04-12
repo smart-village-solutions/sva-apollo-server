@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon",
     "lint": "eslint ./src/**/* --ext .ts",
-    "test": "jest --runInBand --silent"
+    "test": "jest --runInBand --silent",
+    "service:oparl:import": "ts-node ./src/services/OParl/run.ts"
   },
   "keywords": [],
   "author": "Philipp Wilimzig, Smart Village Solutions SVS GmbH",
