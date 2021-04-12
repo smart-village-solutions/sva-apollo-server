@@ -22,6 +22,8 @@ const maximalInput: IOrganization = {
   modified: new Date(),
   web: 'w',
   keyword: ['first', 'second'],
+  consultation: ['c1', 'c2'],
+  license: 'l',
 };
 
 const minimalInput: IOrganization = {
@@ -93,6 +95,11 @@ describe('creating a Organization', () => {
     expect(organization.keyword?.toString()).toEqual(
       maximalInput.keyword?.toString(),
     );
+    expect(organization.consultation).toHaveLength(2);
+    expect(organization.consultation?.toString()).toEqual(
+      maximalInput.consultation?.toString(),
+    );
+    expect(organization).toHaveProperty('license', maximalInput.license);
   });
 
   it('fails to validate after creating an Organization without required values', async () => {

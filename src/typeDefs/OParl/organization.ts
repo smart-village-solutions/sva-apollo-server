@@ -1,21 +1,13 @@
 import { gql } from 'apollo-server-core';
 
+import { oParlBase } from './oParlBase';
+
 export const organizationGQL = gql`
   extend type Query {
     oParlOrganizations: [OParlOrganization!]
   }
 
   type OParlOrganization {
-    id: ID!
-    "id from the oparl object = url where the json is located"
-    externalId: String!
-    "oParl type = url where the type is specified"
-    type: String!
-    created: Date
-    modified: Date
-    keyword: [String!]
-    web: String
-    deleted: Boolean
     body: OParlBody
     classification: String
     endDate: Date
@@ -23,6 +15,7 @@ export const organizationGQL = gql`
     location: OParlLocation
     meeting: [OParlMeeting!]
     membership: [OParlMembership!]
+    consultation: [OParlConsultation!]
     name: String
     organizationType: String
     post: [String!]
@@ -30,5 +23,6 @@ export const organizationGQL = gql`
     startDate: Date
     subOrganizationOf: OParlOrganization
     website: String
+    ${oParlBase}
   }
 `;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`importing a agenda item imports properly 1`] = `
+exports[`importing a agenda item imports properly for 1.0 1`] = `
 Object {
   "__v": 0,
   "auxiliaryFile": Array [],
@@ -11,5 +11,21 @@ Object {
   "number": "1",
   "resolutionText": "",
   "type": "https://schema.oparl.org/1.0/AgendaItem",
+}
+`;
+
+exports[`importing a agenda item imports properly for 1.1 1`] = `
+Object {
+  "__v": 0,
+  "auxiliaryFile": Array [],
+  "created": 2015-09-09T11:55:58.000Z,
+  "externalId": "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/agendaitem/1355",
+  "keyword": Array [],
+  "meeting": "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/meeting/485",
+  "modified": 2015-10-08T09:15:47.000Z,
+  "name": "Öffentliche Sitzung",
+  "number": "I.",
+  "order": 1,
+  "type": "https://schema.oparl.org/1.1/AgendaItem",
 }
 `;

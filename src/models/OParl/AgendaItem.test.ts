@@ -19,6 +19,8 @@ const maximalInput: IAgendaItem = {
   start: new Date(),
   web: 'w',
   keyword: ['first', 'second'],
+  license: 'l',
+  order: 1,
 };
 
 const minimalInput: IAgendaItem = {
@@ -78,6 +80,8 @@ describe('creating an AgendaItem', () => {
     expect(agendaItem.keyword?.toString()).toEqual(
       maximalInput.keyword?.toString(),
     );
+    expect(agendaItem).toHaveProperty('license', maximalInput.license);
+    expect(agendaItem).toHaveProperty('order', maximalInput.order);
   });
 
   it('fails to validate after creating an AgendaItem without required values', async () => {

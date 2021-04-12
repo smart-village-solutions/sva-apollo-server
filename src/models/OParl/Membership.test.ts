@@ -15,6 +15,7 @@ const maximalInput: IMembership = {
   modified: new Date(),
   web: 'w',
   keyword: ['first', 'second'],
+  license: 'l',
 };
 
 const minimalInput: IMembership = {
@@ -61,6 +62,7 @@ describe('creating a Membership', () => {
     expect(membership.keyword?.toString()).toEqual(
       maximalInput.keyword?.toString(),
     );
+    expect(membership).toHaveProperty('license', maximalInput.license);
   });
 
   it('fails to validate after creating a Membership without required values', async () => {

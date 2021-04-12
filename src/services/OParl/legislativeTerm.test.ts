@@ -16,11 +16,21 @@ const testBody = 'testBdo';
 // TODO: change test url to something within our control
 const testUrl =
   'https://www.muenchen-transparent.de/oparl/v1.0/legislativeterm/0';
+const testUrl2 =
+  'https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/legislativeterm/468';
 
 describe('importing a legislative term', () => {
   beforeAll(helperFuncs.beforeAll);
 
-  it('imports properly', basicImportTest(importLegislativeTerm, testUrl));
+  it(
+    'imports properly for 1.0',
+    basicImportTest(importLegislativeTerm, testUrl),
+  );
+
+  it(
+    'imports properly for 1.1',
+    basicImportTest(importLegislativeTerm, testUrl2),
+  );
 
   it(
     'import returns undefined on faulty url',

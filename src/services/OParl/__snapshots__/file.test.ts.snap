@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`importing a file imports properly 1`] = `
+exports[`importing a file imports properly for 1.0 1`] = `
 Object {
   "__v": 0,
   "accessUrl": "https://www.lwl-pch.sitzung-online.de/oi/oparl/1.0/download.asp?dtyp=110&id=21740",
@@ -17,5 +17,25 @@ Object {
   "paper": Array [],
   "size": 334411,
   "type": "https://schema.oparl.org/1.0/File",
+}
+`;
+
+exports[`importing a file imports properly for 1.1 1`] = `
+Object {
+  "__v": 0,
+  "accessUrl": "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/files/rim4883/UGhVM0hpd2NXNFdFcExjZeCYoxs3MotaDiPzQ3AG50g0YItdBTD2kmqCzcvtCZA1/Beschlussvorlage_VL-1-2015.pdf",
+  "agendaItem": Array [],
+  "created": 2015-09-09T14:01:05.000Z,
+  "date": 2015-10-01T00:00:00.000Z,
+  "derivativeFile": Array [],
+  "downloadUrl": "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/files/rim4883/download/UGhVM0hpd2NXNFdFcExjZeCYoxs3MotaDiPzQ3AG50g0YItdBTD2kmqCzcvtCZA1/Beschlussvorlage_VL-1-2015.pdf",
+  "externalId": "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/file/1-1285",
+  "keyword": Array [],
+  "meeting": Array [],
+  "mimeType": "application/pdf",
+  "modified": 2015-09-09T14:01:05.000Z,
+  "name": "Beschlussvorlage (Prüfung des Jahresabschlusses zum 31.12.2014 gem. § 101 der Gemeindeordnung)",
+  "paper": Array [],
+  "type": "https://schema.oparl.org/1.1/File",
 }
 `;

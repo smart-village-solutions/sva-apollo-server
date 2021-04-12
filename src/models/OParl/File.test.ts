@@ -24,6 +24,8 @@ const maximalInput: IFile = {
   modified: new Date(),
   web: 'w',
   keyword: ['first', 'second'],
+  license: 'l',
+  sha512Checksum: 'sc512',
 };
 
 const minimalInput: IFile = {
@@ -87,6 +89,8 @@ describe('creating a File', () => {
     expect(file).toHaveProperty('web', maximalInput.web);
     expect(file.keyword).toHaveLength(2);
     expect(file.keyword?.toString()).toEqual(maximalInput.keyword?.toString());
+    expect(file).toHaveProperty('license', maximalInput.license);
+    expect(file).toHaveProperty('sha512Checksum', maximalInput.sha512Checksum);
   });
 
   it('fails to validate after creating a File without required values', async () => {

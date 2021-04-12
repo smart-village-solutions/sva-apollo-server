@@ -1,5 +1,7 @@
 import { gql } from 'apollo-server-core';
 
+import { oParlBase } from './oParlBase';
+
 // TODO: this needs to be refined once the other types are integrated and we can nest the data instead of having link references"
 export const bodyGQL = gql`
   extend type Query {
@@ -11,19 +13,8 @@ export const bodyGQL = gql`
   }
 
   type OParlBody {
-    id: ID!
-    "id from the oparl object = url where the json is located"
-    externalId: String!
-    "oParl type = url where the type is specified"
-    type: String!
-    created: Date
-    modified: Date
-    keyword: [String!]
-    web: String
-    deleted: Boolean
     name: String!
     website: String
-    license: String
     licenseValidSince: Date
     oparlSince: Date
     ags: String
@@ -36,8 +27,15 @@ export const bodyGQL = gql`
     meeting: [OParlMeeting!]
     paper: [OParlPaper!]
     legislativeTerm: [OParlLegislativeTerm!]
+    legislativeTermList: [OParlLegislativeTerm!]
+    agendaItem: [OParlAgendaItem!]
+    consultation: [OParlConsultation!]
+    file: [OParlFile!]
+    membership: [OParlMembership!]
     classification: String
-    location: [OParlLocation!]
+    location: OParlLocation
+    locationList: [OParlLocation!]
+    ${oParlBase}
   }
 
   "TODO: either remove the ability to mutate oparl object via graphql or refine it"

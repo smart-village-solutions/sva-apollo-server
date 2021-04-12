@@ -56,6 +56,60 @@ export const importBody = async (
     addToQueue.push([json.person, ImportType.Person]);
   }
 
+  if (json.agendaItem) {
+    json.agendaItem = await fetchPaginatedOParlList(
+      json.agendaItem,
+      createdSince,
+      createdUntil,
+    );
+    addToQueue.push([json.agendaItem, ImportType.AgendaItem]);
+  }
+
+  if (json.consultation) {
+    json.consultation = await fetchPaginatedOParlList(
+      json.consultation,
+      createdSince,
+      createdUntil,
+    );
+    addToQueue.push([json.consultation, ImportType.Consultation]);
+  }
+
+  if (json.file) {
+    json.file = await fetchPaginatedOParlList(
+      json.file,
+      createdSince,
+      createdUntil,
+    );
+    addToQueue.push([json.file, ImportType.File]);
+  }
+
+  if (json.legislativeTermList) {
+    json.legislativeTermList = await fetchPaginatedOParlList(
+      json.legislativeTermList,
+      createdSince,
+      createdUntil,
+    );
+    addToQueue.push([json.legislativeTermList, ImportType.LegislativeTerm]);
+  }
+
+  if (json.locationList) {
+    json.locationList = await fetchPaginatedOParlList(
+      json.locationList,
+      createdSince,
+      createdUntil,
+    );
+    addToQueue.push([json.locationList, ImportType.Location]);
+  }
+
+  if (json.membership) {
+    json.membership = await fetchPaginatedOParlList(
+      json.membership,
+      createdSince,
+      createdUntil,
+    );
+    addToQueue.push([json.membership, ImportType.Membership]);
+  }
+
   try {
     return await updateOrCreateEntry(json, parseBody, Body, addToQueue, queue);
   } catch (e) {

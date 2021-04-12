@@ -3,6 +3,7 @@ export interface OParlBase {
   type: string; // TODO: refine here?
   created?: Date;
   modified?: Date;
+  license?: string;
   keyword?: string[];
   web?: string;
   deleted?: boolean;
@@ -14,6 +15,7 @@ export const oParlBaseSchema = () => ({
   type: { type: String, required: true },
   created: Date,
   modified: Date,
+  license: String,
   keyword: [{ type: String, required: true }],
   web: String,
   deleted: Boolean,

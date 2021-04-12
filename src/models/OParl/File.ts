@@ -9,6 +9,7 @@ export interface IFile extends OParlBase {
   date?: Date;
   size?: number;
   sha1Checksum?: string;
+  sha512Checksum?: string;
   text?: string;
   accessUrl: string;
   downloadUrl?: string;
@@ -32,6 +33,7 @@ const FileSchema = new Schema<IFileSchema>(
     date: Date,
     size: Number,
     sha1Checksum: String,
+    sha512Checksum: String,
     text: String,
     accessUrl: { type: String, required: true },
     downloadUrl: String,

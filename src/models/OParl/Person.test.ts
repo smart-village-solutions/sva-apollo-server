@@ -23,6 +23,7 @@ const maximalInput: IPerson = {
   modified: new Date(),
   web: 'w',
   keyword: ['first', 'second'],
+  license: 'l',
 };
 
 const minimalInput: IPerson = {
@@ -82,6 +83,7 @@ describe('creating a Person', () => {
     expect(person.keyword?.toString()).toEqual(
       maximalInput.keyword?.toString(),
     );
+    expect(person).toHaveProperty('license', maximalInput.license);
   });
 
   it('fails to validate after creating a Person without required values', async () => {

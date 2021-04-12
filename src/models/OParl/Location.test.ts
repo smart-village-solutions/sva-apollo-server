@@ -19,6 +19,8 @@ const maximalInput: ILocation = {
   modified: new Date(),
   web: 'w',
   keyword: ['first', 'second'],
+  license: 'l',
+  persons: ['p1', 'p2'],
 };
 
 const minimalInput: ILocation = {
@@ -80,6 +82,11 @@ describe('creating a Location', () => {
     expect(location.keyword).toHaveLength(2);
     expect(location.keyword?.toString()).toEqual(
       maximalInput.keyword?.toString(),
+    );
+    expect(location).toHaveProperty('license', maximalInput.license);
+    expect(location.persons).toHaveLength(2);
+    expect(location.persons?.toString()).toEqual(
+      maximalInput.persons?.toString(),
     );
   });
 
