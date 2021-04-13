@@ -7,31 +7,61 @@ import {
   Organization,
   Person,
 } from '../../models';
+import { findByIds, getPaginatedEntriesByIds } from '../resolverHelpers';
 
 export const meetingResolvers = {
   Query: {
-    oParlMeetings: () => Meeting.find(),
+    oParlMeetings: (_, args: { externalIds?: string[] }) =>
+      args.externalIds ? findByIds(args.externalIds, Meeting) : Meeting.find(),
   },
   OParlMeeting: {
-    location: (args: IMeeting) =>
-      Location.findOne({ externalId: args.location }),
-    organization: (args: IMeeting) =>
-      args.organization?.map((value) =>
-        Organization.findOne({ externalId: value }),
+    location: (parent: IMeeting) =>
+      Location.findOne({ externalId: parent.location }),
+    organization: async (
+      parent: IMeeting,
+      args: { offset?: number; pageSize?: number },
+    ) =>
+      getPaginatedEntriesByIds(
+        Organization,
+        parent.organization,
+        args.offset,
+        args.pageSize,
       ),
-    participant: (args: IMeeting) =>
-      args.participant?.map((value) => Person.findOne({ externalId: value })),
-    invitation: (args: IMeeting) =>
-      File.findOne({ externalId: args.invitation }),
-    resultsProtocol: (args: IMeeting) =>
-      File.findOne({ externalId: args.resultsProtocol }),
-    verbatimProtocol: (args: IMeeting) =>
-      File.findOne({ externalId: args.verbatimProtocol }),
-    auxiliaryFile: (args: IMeeting) =>
-      args.auxiliaryFile?.map((value) => File.findOne({ externalId: value })),
-    agendaItem: (args: IMeeting) =>
-      args.agendaItem?.map((value) =>
-        AgendaItem.findOne({ externalId: value }),
+    participant: async (
+      parent: IMeeting,
+      args: { offset?: number; pageSize?: number },
+    ) =>
+      getPaginatedEntriesByIds(
+        Person,
+        parent.participant,
+        args.offset,
+        args.pageSize,
+      ),
+    invitation: (parent: IMeeting) =>
+      File.findOne({ externalId: parent.invitation }),
+    resultsProtocol: (parent: IMeeting) =>
+      File.findOne({ externalId: parent.resultsProtocol }),
+    verbatimProtocol: (parent: IMeeting) =>
+      File.findOne({ externalId: parent.verbatimProtocol }),
+    auxiliaryFile: async (
+      parent: IMeeting,
+      args: { offset?: number; pageSize?: number },
+    ) =>
+      getPaginatedEntriesByIds(
+        File,
+        parent.auxiliaryFile,
+        args.offset,
+        args.pageSize,
+      ),
+    agendaItem: async (
+      parent: IMeeting,
+      args: { offset?: number; pageSize?: number },
+    ) =>
+      getPaginatedEntriesByIds(
+        AgendaItem,
+        parent.agendaItem,
+        args.offset,
+        args.pageSize,
       ),
   },
 };

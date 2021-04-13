@@ -1,10 +1,15 @@
 import { Body, ILegislativeTerm, LegislativeTerm } from '../../models';
+import { findByIds } from '../resolverHelpers';
 
 export const legislativeTermResolvers = {
   Query: {
-    oParlLegislativeTerms: () => LegislativeTerm.find(),
+    oParlLegislativeTerms: (_, args: { externalIds?: string[] }) =>
+      args.externalIds
+        ? findByIds(args.externalIds, LegislativeTerm)
+        : LegislativeTerm.find(),
   },
   OParlLegislativeTerm: {
-    body: (args: ILegislativeTerm) => Body.findOne({ externalId: args.body }),
+    body: (parent: ILegislativeTerm) =>
+      Body.findOne({ externalId: parent.body }),
   },
 };

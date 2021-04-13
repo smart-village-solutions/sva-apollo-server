@@ -1,14 +1,19 @@
 import { IMembership, Membership, Organization, Person } from '../../models';
+import { findByIds } from '../resolverHelpers';
 
 export const membershipResolvers = {
   Query: {
-    oParlMemberships: () => Membership.find(),
+    oParlMemberships: (_, args: { externalIds?: string[] }) =>
+      args.externalIds
+        ? findByIds(args.externalIds, Membership)
+        : Membership.find(),
   },
   OParlMembership: {
-    person: (args: IMembership) => Person.findOne({ externalId: args.person }),
-    organization: (args: IMembership) =>
-      Organization.findOne({ externalId: args.organization }),
-    onBehalfOf: (args: IMembership) =>
-      Organization.findOne({ externalId: args.onBehalfOf }),
+    person: (parent: IMembership) =>
+      Person.findOne({ externalId: parent.person }),
+    organization: (parent: IMembership) =>
+      Organization.findOne({ externalId: parent.organization }),
+    onBehalfOf: (parent: IMembership) =>
+      Organization.findOne({ externalId: parent.onBehalfOf }),
   },
 };

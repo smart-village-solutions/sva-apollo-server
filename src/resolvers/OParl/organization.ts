@@ -1,23 +1,52 @@
 import {
   Body,
+  Consultation,
   IOrganization,
   Location,
   Meeting,
   Membership,
   Organization,
 } from '../../models';
+import { findByIds, getPaginatedEntriesByIds } from '../resolverHelpers';
 
 export const organizationResolvers = {
   Query: {
-    oParlOrganizations: () => Organization.find(),
+    oParlOrganizations: (_, args: { externalIds?: string[] }) =>
+      args.externalIds
+        ? findByIds(args.externalIds, Organization)
+        : Organization.find(),
   },
   OParlOrganization: {
-    body: (args: IOrganization) => Body.findOne({ externalId: args.body }),
-    meeting: (args: IOrganization) =>
-      args.membership?.map((value) => Meeting.findOne({ externalId: value })),
-    membership: (args: IOrganization) =>
-      args.membership?.map((value) =>
-        Membership.findOne({ externalId: value }),
+    body: (parent: IOrganization) => Body.findOne({ externalId: parent.body }),
+    consultation: async (
+      parent: IOrganization,
+      args: { offset?: number; pageSize?: number },
+    ) =>
+      getPaginatedEntriesByIds(
+        Consultation,
+        parent.consultation,
+        args.offset,
+        args.pageSize,
+      ),
+    meeting: async (
+      parent: IOrganization,
+      args: { offset?: number; pageSize?: number },
+    ) =>
+      getPaginatedEntriesByIds(
+        Meeting,
+        parent.meeting,
+        args.offset,
+        args.pageSize,
+      ),
+    membership: async (
+      parent: IOrganization,
+      args: { offset?: number; pageSize?: number },
+    ) =>
+      getPaginatedEntriesByIds(
+        Membership,
+        parent.membership,
+        args.offset,
+        args.pageSize,
       ),
     subOrganizationOf: (args: IOrganization) =>
       Organization.findOne({ externalId: args.subOrganizationOf }),

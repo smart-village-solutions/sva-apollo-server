@@ -4,7 +4,7 @@ import { oParlBase } from './oParlBase';
 
 export const personGQL = gql`
   extend type Query {
-    oParlPersons: [OParlPerson!]
+    oParlPersons(externalIds: [String!]): [OParlPerson!]
   }
 
   type OParlPerson {
@@ -18,7 +18,7 @@ export const personGQL = gql`
     life: String
     lifeSource: String
     location: OParlLocation
-    membership: [OParlMembership!]
+    membership(offset: Int, pageSize: Int): [OParlMembership!]
     name: String
     phone: [String!]
     status: [String!]

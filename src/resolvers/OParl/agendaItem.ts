@@ -5,19 +5,31 @@ import {
   IAgendaItem,
   Meeting,
 } from '../../models';
+import { findByIds, getPaginatedEntriesByIds } from '../resolverHelpers';
 
 export const agendaItemResolvers = {
   Query: {
-    oParlAgendaItems: () => AgendaItem.find(),
+    oParlAgendaItems: (_, args: { externalIds?: string[] }) =>
+      args.externalIds
+        ? findByIds(args.externalIds, AgendaItem)
+        : AgendaItem.find(),
   },
   OParlAgendaItem: {
-    meeting: (args: IAgendaItem) =>
-      Meeting.findOne({ externalId: args.meeting }),
-    consultation: (args: IAgendaItem) =>
-      Consultation.findOne({ externalId: args.consultation }),
-    resolutionFile: (args: IAgendaItem) =>
-      File.findOne({ externalId: args.resolutionFile }),
-    auxiliaryFile: (args: IAgendaItem) =>
-      args.auxiliaryFile?.map((value) => File.findOne({ externalId: value })),
+    meeting: (parent: IAgendaItem) =>
+      Meeting.findOne({ externalId: parent.meeting }),
+    consultation: (parent: IAgendaItem) =>
+      Consultation.findOne({ externalId: parent.consultation }),
+    resolutionFile: (parent: IAgendaItem) =>
+      File.findOne({ externalId: parent.resolutionFile }),
+    auxiliaryFile: async (
+      parent: IAgendaItem,
+      args: { offset?: number; pageSize?: number },
+    ) =>
+      getPaginatedEntriesByIds(
+        File,
+        parent.auxiliaryFile,
+        args.offset,
+        args.pageSize,
+      ),
   },
 };

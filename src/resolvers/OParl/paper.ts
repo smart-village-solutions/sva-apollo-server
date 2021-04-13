@@ -7,42 +7,104 @@ import {
   Paper,
   Person,
 } from '../../models';
+import { findByIds, getPaginatedEntriesByIds } from '../resolverHelpers';
 
 export const paperResolvers = {
   Query: {
-    oParlPapers: () => Paper.find(),
+    oParlPapers: (_, args: { externalIds?: string[] }) =>
+      args.externalIds ? findByIds(args.externalIds, Paper) : Paper.find(),
   },
   OParlPaper: {
-    relatedPaper: (args: IPaper) =>
-      args.relatedPaper?.map((value) => Paper.findOne({ externalId: value })),
-    superordinatedPaper: (args: IPaper) =>
-      args.superordinatedPaper?.map((value) =>
-        Paper.findOne({ externalId: value }),
+    relatedPaper: async (
+      parent: IPaper,
+      args: { offset?: number; pageSize?: number },
+    ) =>
+      getPaginatedEntriesByIds(
+        Paper,
+        parent.relatedPaper,
+        args.offset,
+        args.pageSize,
       ),
-    subordinatedPaper: (args: IPaper) =>
-      args.subordinatedPaper?.map((value) =>
-        Paper.findOne({ externalId: value }),
+    superordinatedPaper: async (
+      parent: IPaper,
+      args: { offset?: number; pageSize?: number },
+    ) =>
+      getPaginatedEntriesByIds(
+        Paper,
+        parent.superordinatedPaper,
+        args.offset,
+        args.pageSize,
       ),
-    mainFile: (args: IPaper) => File.findOne({ externalId: args.mainFile }),
-    auxiliaryFile: (args: IPaper) =>
-      args.auxiliaryFile?.map((value) => File.findOne({ externalId: value })),
-    location: (args: IPaper) =>
-      args.location?.map((value) => Location.findOne({ externalId: value })),
-    originatorPerson: (args: IPaper) =>
-      args.originatorPerson?.map((value) =>
-        Person.findOne({ externalId: value }),
+    subordinatedPaper: async (
+      parent: IPaper,
+      args: { offset?: number; pageSize?: number },
+    ) =>
+      getPaginatedEntriesByIds(
+        Paper,
+        parent.subordinatedPaper,
+        args.offset,
+        args.pageSize,
       ),
-    underDirectionOf: (args: IPaper) =>
-      args.underDirectionOf?.map((value) =>
-        Organization.findOne({ externalId: value }),
+    mainFile: (parent: IPaper) => File.findOne({ externalId: parent.mainFile }),
+    auxiliaryFile: async (
+      parent: IPaper,
+      args: { offset?: number; pageSize?: number },
+    ) =>
+      getPaginatedEntriesByIds(
+        File,
+        parent.auxiliaryFile,
+        args.offset,
+        args.pageSize,
       ),
-    originatorOrganization: (args: IPaper) =>
-      args.originatorOrganization?.map((value) =>
-        Organization.findOne({ externalId: value }),
+    location: async (
+      parent: IPaper,
+      args: { offset?: number; pageSize?: number },
+    ) =>
+      getPaginatedEntriesByIds(
+        Location,
+        parent.location,
+        args.offset,
+        args.pageSize,
       ),
-    consultation: (args: IPaper) =>
-      args.consultation?.map((value) =>
-        Consultation.findOne({ externalId: value }),
+    originatorPerson: async (
+      parent: IPaper,
+      args: { offset?: number; pageSize?: number },
+    ) =>
+      getPaginatedEntriesByIds(
+        Person,
+        parent.originatorPerson,
+        args.offset,
+        args.pageSize,
+      ),
+    underDirectionOf: async (
+      parent: IPaper,
+      args: { offset?: number; pageSize?: number },
+    ) =>
+      getPaginatedEntriesByIds(
+        Organization,
+        parent.underDirectionOf,
+        args.offset,
+        args.pageSize,
+      ),
+    originatorOrganization: async (
+      parent: IPaper,
+      args: { offset?: number; pageSize?: number },
+    ) =>
+      getPaginatedEntriesByIds(
+        Organization,
+        parent.originatorOrganization,
+        args.offset,
+        args.pageSize,
+      ),
+    consultation: async (
+      parent: IPaper,
+      args: { offset?: number; pageSize?: number },
+    ) =>
+      getPaginatedEntriesByIds(
+        Consultation,
+        parent.consultation,
+        args.offset,
+        args.pageSize,
       ),
   },
 };

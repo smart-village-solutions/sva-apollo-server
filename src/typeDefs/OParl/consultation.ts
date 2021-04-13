@@ -4,14 +4,14 @@ import { oParlBase } from './oParlBase';
 
 export const consultationGQL = gql`
   extend type Query {
-    oParlConsultations: [OParlConsultation!]
+    oParlConsultations(externalIds: [String!]): [OParlConsultation!]
   }
 
   type OParlConsultation {
     agendaItem: OParlAgendaItem
     authoritative: Boolean
     meeting: OParlMeeting
-    organization: [OParlOrganization!]
+    organization(offset: Int, pageSize: Int): [OParlOrganization!]
     paper: OParlPaper
     role: String
     ${oParlBase}

@@ -1,14 +1,14 @@
-import { Body } from './Body';
-import { Consultation } from './Consultation';
-import { File } from './File';
-import { LegislativeTerm } from './LegislativeTerm';
-import { Location } from './Location';
-import { Meeting } from './Meeting';
-import { Membership } from './Membership';
-import { Organization } from './Organization';
-import { Paper } from './Paper';
-import { Person } from './Person';
-import { System } from './System';
+import { Body, IBody } from './Body';
+import { Consultation, IConsultation } from './Consultation';
+import { File, IFile } from './File';
+import { ILegislativeTerm, LegislativeTerm } from './LegislativeTerm';
+import { ILocation, Location } from './Location';
+import { IMeeting, Meeting } from './Meeting';
+import { IMembership, Membership } from './Membership';
+import { IOrganization, Organization } from './Organization';
+import { IPaper, Paper } from './Paper';
+import { IPerson, Person } from './Person';
+import { ISystem, System } from './System';
 
 export type OParlModel =
   | typeof Body
@@ -22,3 +22,16 @@ export type OParlModel =
   | typeof Paper
   | typeof Person
   | typeof System;
+
+export type OParlInterface =
+  | IBody
+  | IConsultation
+  | IFile
+  | ILegislativeTerm
+  | ILocation
+  | IMeeting
+  | IMembership
+  | IOrganization
+  | IPaper
+  | IPerson
+  | ISystem;

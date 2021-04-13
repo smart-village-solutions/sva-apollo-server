@@ -4,23 +4,23 @@ import { oParlBase } from './oParlBase';
 
 export const fileGQL = gql`
   extend type Query {
-    oParlFiles: [OParlFile!]
+    oParlFiles(externalIds: [String!]): [OParlFile!]
   }
 
   type OParlFile {
     accessUrl: String!
-    agendaItem: [OParlAgendaItem!]
+    agendaItem(offset: Int, pageSize: Int): [OParlAgendaItem!]
     date: Date
-    derivativeFile: [OParlFile!]
+    derivativeFile(offset: Int, pageSize: Int): [OParlFile!]
     downloadUrl: String
     externalServiceUrl: String
     fileLicense: String
     fileName: String
     masterFile: OParlFile
-    meeting: [OParlMeeting!]
+    meeting(offset: Int, pageSize: Int): [OParlMeeting!]
     mimeType: String
     name: String
-    paper: [OParlPaper!]
+    paper(offset: Int, pageSize: Int): [OParlPaper!]
     sha1Checksum: String
     sha512Checksum: String
     size: Int
