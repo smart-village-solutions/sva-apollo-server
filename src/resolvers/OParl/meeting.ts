@@ -11,8 +11,20 @@ import { findByIds, getPaginatedEntriesByIds } from '../resolverHelpers';
 
 export const meetingResolvers = {
   Query: {
-    oParlMeetings: (_, args: { externalIds?: string[] }) =>
-      args.externalIds ? findByIds(args.externalIds, Meeting) : Meeting.find(),
+    oParlMeetings: (
+      _,
+      args: { externalIds?: string[]; before?: string; after?: string },
+    ) => {
+      const dateFiliter: { $gte?: Date; $lt?: Date } = {};
+      if (args.after) dateFiliter.$gte = new Date(args.after);
+      if (args.before) dateFiliter.$lt = new Date(args.before);
+
+      return args.externalIds
+        ? findByIds(args.externalIds, Meeting)
+        : Meeting.find({
+            start: dateFiliter,
+          });
+    },
   },
   OParlMeeting: {
     location: (parent: IMeeting) =>
