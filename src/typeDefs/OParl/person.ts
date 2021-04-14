@@ -8,7 +8,7 @@ export const personGQL = gql`
   }
 
   type OParlPerson {
-    affix: [String!]
+    affix: String
     body: OParlBody
     email: [String!]
     familyName: String
