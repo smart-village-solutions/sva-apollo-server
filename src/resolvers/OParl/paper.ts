@@ -1,4 +1,5 @@
 import {
+  Body,
   Consultation,
   File,
   IPaper,
@@ -15,6 +16,7 @@ export const paperResolvers = {
       args.externalIds ? findByIds(args.externalIds, Paper) : Paper.find(),
   },
   OParlPaper: {
+    body: (parent: IPaper) => Body.findOne({ externalId: parent.body }),
     relatedPaper: async (
       parent: IPaper,
       args: { offset?: number; pageSize?: number },
