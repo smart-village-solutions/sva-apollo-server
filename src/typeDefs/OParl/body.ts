@@ -10,6 +10,7 @@ export const bodyGQL = gql`
 
   type OParlBody {
     name: String!
+    shortName: String
     website: String
     licenseValidSince: Date
     oparlSince: Date

@@ -4,6 +4,7 @@ import { OParlBase, oParlBaseSchema } from './OParlBase';
 
 export interface IBody extends OParlBase {
   name: string;
+  shortName?: string;
   website?: string;
   licenseValidSince?: Date;
   oparlSince?: Date;
@@ -42,6 +43,7 @@ interface IBodySchema extends IBody, Document {}
 const BodySchema = new Schema<IBodySchema>(
   Object.assign(oParlBaseSchema(), {
     name: { type: String, required: true },
+    shortName: String,
     website: String,
     license: String,
     licenseValidSince: Date,
