@@ -15,14 +15,14 @@ export const meetingResolvers = {
       _,
       args: { externalIds?: string[]; before?: string; after?: string },
     ) => {
-      const dateFiliter: { $gte?: Date; $lt?: Date } = {};
-      if (args.after) dateFiliter.$gte = new Date(args.after);
-      if (args.before) dateFiliter.$lt = new Date(args.before);
+      const dateFilter: { $gte?: Date; $lt?: Date } = {};
+      if (args.after) dateFilter.$gte = new Date(args.after);
+      if (args.before) dateFilter.$lt = new Date(args.before);
 
       return args.externalIds
         ? findByIds(args.externalIds, Meeting)
         : Meeting.find({
-            start: dateFiliter,
+            start: dateFilter,
           });
     },
   },
