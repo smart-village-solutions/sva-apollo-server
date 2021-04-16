@@ -120,6 +120,7 @@ Object {
     "https://oparl.politik-bei-uns.de/person/5a73014bf24bb7ed5127cc3d",
   ],
   "rgs": "130760000000",
+  "shortName": "KT",
   "type": "https://schema.oparl.org/1.0/Body",
 }
 `;
