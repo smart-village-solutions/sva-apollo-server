@@ -24,8 +24,8 @@ describe('importing a body', () => {
     basicImportTest(
       importBody,
       testUrl,
-      new Date('2017-05-01'),
-      new Date('2017-05-31'),
+      new Date(1493596800000),
+      new Date(1496188800000),
     ),
   );
 
@@ -34,8 +34,8 @@ describe('importing a body', () => {
     basicImportTest(
       importBody,
       testUrl2,
-      new Date('2016-06-02'),
-      new Date('2016-07-31'),
+      new Date(1464825600000),
+      new Date(1469923200000),
     ),
   );
 

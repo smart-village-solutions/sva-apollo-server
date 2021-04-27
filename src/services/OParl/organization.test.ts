@@ -21,8 +21,8 @@ describe('importing an organization', () => {
     basicImportTest(
       importOrganization,
       testUrl,
-      new Date('2017-06-01'),
-      new Date('2018-06-01'),
+      new Date(1496275200000),
+      new Date(1527811200000),
     ),
   );
 
