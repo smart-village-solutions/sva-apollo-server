@@ -2,7 +2,7 @@ import { IMeeting, Meeting } from './Meeting';
 
 const maximalInput: IMeeting = {
   externalId: 'eId',
-  type: 't', // TODO: add proper type
+  type: 't',
   agendaItem: ['a1', 'a2'],
   auxiliaryFile: ['f1', 'f2'],
   cancelled: false,
@@ -26,7 +26,7 @@ const maximalInput: IMeeting = {
 
 const minimalInput: IMeeting = {
   externalId: 'eId',
-  type: 't', // TODO: add proper type
+  type: 't',
 };
 
 describe('creating a Meeting', () => {

@@ -25,9 +25,8 @@ export const getJson = async (value: unknown) => {
 
 export const updateOrCreateEntry = async (
   json: Record<string, unknown>,
-  // TODO: improve type of parsers. for now ensure that this is at least a function
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  parseJson: (...args: any) => any,
+  parseJson: (json: Record<string, unknown>) => any,
   model: OParlModel,
   addToQueue?: [ImportQueueEntry | ImportQueueEntry[], ImportType][],
   queue?: ImportQueue,
@@ -53,11 +52,12 @@ export const updateOrCreateEntry = async (
     if (isArray(list[0])) {
       queue?.add(
         ...list[0].map(
-          (entry) => [entry, list[1]] as [ImportQueueEntry, ImportType],
+          (arrayEntry) =>
+            [arrayEntry, list[1]] as [ImportQueueEntry, ImportType],
         ),
       );
     }
   });
 
-  return await entry.save();
+  return entry.save();
 };

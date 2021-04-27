@@ -2,7 +2,7 @@ import { File, IFile } from './File';
 
 const maximalInput: IFile = {
   externalId: 'eId',
-  type: 't', // TODO: add proper type
+  type: 't',
   accessUrl: 'au',
   agendaItem: ['ai1', 'ai2'],
   date: new Date(),
@@ -30,7 +30,7 @@ const maximalInput: IFile = {
 
 const minimalInput: IFile = {
   externalId: 'eId',
-  type: 't', // TODO: add proper type
+  type: 't',
   accessUrl: 'au',
 };
 

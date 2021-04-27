@@ -6,7 +6,7 @@ import {
   formatCreatedUntil,
 } from '../../helpers';
 
-// TODO: improve importing of paginated lists -> import/update entries directly as they are already available
+// if performance becomes problematic: improve importing of paginated lists -> import/update entries directly as they are already available
 
 // fetch all entries and of a paginated list and extract the ids
 export const fetchPaginatedOParlList = async (

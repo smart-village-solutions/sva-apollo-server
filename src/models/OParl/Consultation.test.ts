@@ -2,7 +2,7 @@ import { Consultation, IConsultation } from './Consultation';
 
 const maximalInput: IConsultation = {
   externalId: 'eId',
-  type: 't', // TODO: add proper type
+  type: 't',
   agendaItem: 'ai',
   authoritative: true,
   organization: ['o1', 'o2'],
@@ -19,7 +19,7 @@ const maximalInput: IConsultation = {
 
 const minimalInput: IConsultation = {
   externalId: 'eId',
-  type: 't', // TODO: add proper type
+  type: 't',
 };
 
 describe('creating a Consultation', () => {

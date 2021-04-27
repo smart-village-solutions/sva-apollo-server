@@ -2,7 +2,7 @@ import { AgendaItem, IAgendaItem } from './AgendaItem';
 
 const maximalInput: IAgendaItem = {
   externalId: 'eId',
-  type: 't', // TODO: add proper type
+  type: 't',
   name: 'n',
   auxiliaryFile: ['af1', 'af2', 'af3'],
   consultation: 'cons',
@@ -25,7 +25,7 @@ const maximalInput: IAgendaItem = {
 
 const minimalInput: IAgendaItem = {
   externalId: 'eId',
-  type: 't', // TODO: add proper type
+  type: 't',
 };
 
 describe('creating an AgendaItem', () => {

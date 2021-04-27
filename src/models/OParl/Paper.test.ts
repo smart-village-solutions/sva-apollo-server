@@ -2,7 +2,7 @@ import { IPaper, Paper } from './Paper';
 
 const maximalInput: IPaper = {
   externalId: 'eId',
-  type: 't', // TODO: add proper type
+  type: 't',
   auxiliaryFile: ['a1', 'a2'],
   body: 'b',
   consultation: ['c1'],
@@ -28,7 +28,7 @@ const maximalInput: IPaper = {
 
 const minimalInput: IPaper = {
   externalId: 'eId',
-  type: 't', // TODO: add proper type
+  type: 't',
 };
 
 describe('creating a Paper', () => {
