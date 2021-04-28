@@ -2,7 +2,6 @@ import { gql } from 'apollo-server-core';
 
 import { oParlBase } from './oParlBase';
 
-// TODO: this needs to be refined once the other types are integrated and we can nest the data instead of having link references"
 export const bodyGQL = gql`
   extend type Query {
     oParlBodies(externalIds: [String!]): [OParlBody!]
