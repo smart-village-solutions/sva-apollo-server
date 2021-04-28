@@ -2,7 +2,7 @@ import { IPerson, Person } from './Person';
 
 const maximalInput: IPerson = {
   externalId: 'eId',
-  type: 't', // TODO: add proper type
+  type: 't',
   affix: 'af',
   body: 'b1',
   email: ['em'],
@@ -28,7 +28,7 @@ const maximalInput: IPerson = {
 
 const minimalInput: IPerson = {
   externalId: 'eId',
-  type: 't', // TODO: add proper type
+  type: 't',
 };
 
 describe('creating a Person', () => {

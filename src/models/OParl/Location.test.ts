@@ -2,7 +2,7 @@ import { ILocation, Location } from './Location';
 
 const maximalInput: ILocation = {
   externalId: 'eId',
-  type: 't', // TODO: add proper type
+  type: 't',
   bodies: ['b1', 'b2', 'b3'],
   description: 'd',
   geojson: '{}',
@@ -25,7 +25,7 @@ const maximalInput: ILocation = {
 
 const minimalInput: ILocation = {
   externalId: 'eId',
-  type: 't', // TODO: add proper type
+  type: 't',
 };
 
 describe('creating a Location', () => {

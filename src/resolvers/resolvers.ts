@@ -24,6 +24,7 @@ import {
 } from './roadwork';
 
 // TODO: extract the remaining resolvers
+// TODO: remove roadworks altogether, as it was a test/dummy model
 const baseResolvers = {
   Date: dateScalar,
   Query: {

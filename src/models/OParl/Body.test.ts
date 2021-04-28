@@ -2,7 +2,7 @@ import { Body, IBody } from './Body';
 
 const maximalInput: IBody = {
   externalId: 'eId',
-  type: 't', // TODO: add proper type
+  type: 't',
   name: 'n',
   organization: ['o1', 'o2'],
   person: ['pe'],
@@ -35,7 +35,7 @@ const maximalInput: IBody = {
 
 const minimalInput: IBody = {
   externalId: 'eId',
-  type: 't', // TODO: add proper type
+  type: 't',
   name: 'n',
   organization: ['o1', 'o2'],
   person: ['pe'],

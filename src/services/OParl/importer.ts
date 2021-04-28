@@ -1,5 +1,3 @@
-// TODO: define entry point through script
-
 import { isString } from 'lodash';
 
 import { UniqueQueue } from '../../UniqueQueue';
@@ -26,12 +24,11 @@ const preferFullEntry = (a: [ImportQueueEntry, ImportType]) => {
   return !isString(a[0]);
 };
 
+// add functionality for incremental updates here, once performance becomes an issue
 export const importOParl = async (
   entryUrl: string,
   entryType = ImportType.System,
 ) => {
-  // TODO: get last import date
-
   // use a queue that saves the importer function which should be used with the corresponding url
   const importQueue: ImportQueue = new UniqueQueue<
     [ImportQueueEntry, ImportType]
@@ -46,7 +43,6 @@ export const importOParl = async (
 
     next = importQueue.next();
   }
-  // TODO: set last import date
 
   return true;
 };

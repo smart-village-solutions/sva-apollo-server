@@ -2,7 +2,7 @@ import { ISystem, System } from './System';
 
 const maximalInput: ISystem = {
   externalId: 'eId',
-  type: 't', // TODO: add proper type
+  type: 't',
   body: ['b1', 'b2'],
   oparlVersion: 'ov',
   contactEmail: 'ce',
@@ -22,7 +22,7 @@ const maximalInput: ISystem = {
 
 const minimalInput: ISystem = {
   externalId: 'eId',
-  type: 't', // TODO: add proper type,
+  type: 't',
   body: ['b'],
   oparlVersion: 'ov',
 };

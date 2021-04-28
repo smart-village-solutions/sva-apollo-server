@@ -2,7 +2,7 @@ import { IMembership, Membership } from './Membership';
 
 const maximalInput: IMembership = {
   externalId: 'eId',
-  type: 't', // TODO: add proper type
+  type: 't',
   endDate: new Date(),
   onBehalfOf: 'obo',
   organization: 'o',
@@ -20,7 +20,7 @@ const maximalInput: IMembership = {
 
 const minimalInput: IMembership = {
   externalId: 'eId',
-  type: 't', // TODO: add proper type
+  type: 't',
 };
 
 describe('creating a Membership', () => {

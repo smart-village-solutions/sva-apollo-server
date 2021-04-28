@@ -9,6 +9,7 @@ export const parseFile = (json) => {
   if (isObjectLike(json)) {
     const externalId = json.id; // change the id given to us to be the externalId instead
     delete json.id; // remove the id key from the json to ensure we do not preset it for mongo db
+
     return {
       ...json,
       externalId,

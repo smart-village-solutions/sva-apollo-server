@@ -2,7 +2,7 @@ import { ILegislativeTerm, LegislativeTerm } from './LegislativeTerm';
 
 const maximalInput: ILegislativeTerm = {
   externalId: 'eId',
-  type: 't', // TODO: add proper type
+  type: 't',
   name: 'n',
   body: 'b',
   startDate: new Date(),
@@ -16,7 +16,7 @@ const maximalInput: ILegislativeTerm = {
 };
 const minimalInput: ILegislativeTerm = {
   externalId: 'eId',
-  type: 't', // TODO: add proper type
+  type: 't',
 };
 
 describe('creating a LegislativeTerm', () => {

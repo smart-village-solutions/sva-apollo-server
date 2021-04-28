@@ -2,7 +2,7 @@ import { IOrganization, Organization } from './Organization';
 
 const maximalInput: IOrganization = {
   externalId: 'eId',
-  type: 't', // TODO: add proper type
+  type: 't',
   body: 'b',
   classification: 'c',
   endDate: new Date(),
@@ -28,7 +28,7 @@ const maximalInput: IOrganization = {
 
 const minimalInput: IOrganization = {
   externalId: 'eId',
-  type: 't', // TODO: add proper type
+  type: 't',
 };
 
 describe('creating a Organization', () => {
