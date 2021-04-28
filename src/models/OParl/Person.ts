@@ -20,7 +20,7 @@ export interface IPerson extends OParlBase {
   lifeSource?: string;
 }
 
-interface IPersonSchema extends IPerson, Document {}
+export interface IPersonSchema extends IPerson, Document {}
 
 // this should always match the interface from above
 const PersonSchema = new Schema<IPersonSchema>(

@@ -20,7 +20,7 @@ export interface IOrganization extends OParlBase {
   externalBody?: string; // externalId of a body of another OParl system (which will not be handled for now)
 }
 
-interface IOrganizationSchema extends IOrganization, Document {}
+export interface IOrganizationSchema extends IOrganization, Document {}
 
 // this should always match the interface from above
 const OrganizationSchema = new Schema<IOrganizationSchema>(

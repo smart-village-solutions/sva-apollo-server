@@ -1,10 +1,26 @@
-import { AgendaItem, File, IFile, Meeting, Paper } from '../../models';
-import { findByIds, getPaginatedEntriesByIds } from '../resolverHelpers';
+import { FilterQuery } from 'mongoose';
+
+import {
+  AgendaItem,
+  File,
+  IFile,
+  IFileSchema,
+  Meeting,
+  Paper,
+} from '../../models';
+import { getPaginatedEntriesByIds } from '../resolverHelpers';
 
 export const fileResolvers = {
   Query: {
-    oParlFiles: (_, args: { externalIds?: string[] }) =>
-      args.externalIds ? findByIds(args.externalIds, File) : File.find(),
+    oParlFiles: (_, args: { externalIds?: string[]; keyword?: string[] }) => {
+      const filter: FilterQuery<IFileSchema> = {};
+
+      if (args.keyword?.length) filter.keyword = { $all: args.keyword };
+
+      if (args.externalIds) filter.externalId = { $in: args.externalIds };
+
+      return File.find(filter);
+    },
   },
   OParlFile: {
     masterFile: (parent: IFile) =>

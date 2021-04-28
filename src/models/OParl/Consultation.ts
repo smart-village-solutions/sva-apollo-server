@@ -12,7 +12,7 @@ export interface IConsultation extends OParlBase {
   role?: string;
 }
 
-interface IConsultationSchema extends IConsultation, Document {}
+export interface IConsultationSchema extends IConsultation, Document {}
 
 // this should always match the interface from above
 const ConsultationSchema = new Schema<IConsultationSchema>(

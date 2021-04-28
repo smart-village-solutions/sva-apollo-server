@@ -4,7 +4,10 @@ import { oParlBase } from './oParlBase';
 
 export const paperGQL = gql`
   extend type Query {
-    oParlPapers(externalIds: [String!]): [OParlPaper!]
+    oParlPapers(
+      externalIds: [String!]
+      keyword: [String!]
+    ): [OParlPaper!]
   }
 
   type OParlPaper {

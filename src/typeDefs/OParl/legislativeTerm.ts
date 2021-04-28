@@ -4,7 +4,10 @@ import { oParlBase } from './oParlBase';
 
 export const legislativeTermGQL = gql`
   extend type Query {
-    oParlLegislativeTerms(externalIds: [String!]): [OParlLegislativeTerm!]
+    oParlLegislativeTerms(
+      externalIds: [String!]
+      keyword: [String!]
+    ): [OParlLegislativeTerm!]
   }
 
   type OParlLegislativeTerm {

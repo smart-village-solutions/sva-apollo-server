@@ -4,7 +4,10 @@ import { oParlBase } from './oParlBase';
 
 export const fileGQL = gql`
   extend type Query {
-    oParlFiles(externalIds: [String!]): [OParlFile!]
+    oParlFiles(
+      externalIds: [String!]
+      keyword: [String!]
+    ): [OParlFile!]
   }
 
   type OParlFile {

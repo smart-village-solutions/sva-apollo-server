@@ -37,7 +37,7 @@ export interface IBody extends OParlBase {
   locationList?: string[];
 }
 
-interface IBodySchema extends IBody, Document {}
+export interface IBodySchema extends IBody, Document {}
 
 // this should always match the interface from above
 const BodySchema = new Schema<IBodySchema>(

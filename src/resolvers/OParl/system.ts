@@ -1,10 +1,19 @@
-import { Body, ISystem, System } from '../../models';
-import { findByIds, getPaginatedEntriesByIds } from '../resolverHelpers';
+import { FilterQuery } from 'mongoose';
+
+import { Body, ISystem, ISystemSchema, System } from '../../models';
+import { getPaginatedEntriesByIds } from '../resolverHelpers';
 
 export const systemResolvers = {
   Query: {
-    oParlSystems: (_, args: { externalIds?: string[] }) =>
-      args.externalIds ? findByIds(args.externalIds, System) : System.find(),
+    oParlSystems: (_, args: { externalIds?: string[]; keyword?: string[] }) => {
+      const filter: FilterQuery<ISystemSchema> = {};
+
+      if (args.keyword?.length) filter.keyword = { $all: args.keyword };
+
+      if (args.externalIds) filter.externalId = { $in: args.externalIds };
+
+      return System.find(filter);
+    },
   },
   OParlSystem: {
     body: async (

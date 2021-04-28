@@ -1,12 +1,27 @@
-import { IMembership, Membership, Organization, Person } from '../../models';
-import { findByIds } from '../resolverHelpers';
+import { FilterQuery } from 'mongoose';
+
+import {
+  IMembership,
+  IMembershipSchema,
+  Membership,
+  Organization,
+  Person,
+} from '../../models';
 
 export const membershipResolvers = {
   Query: {
-    oParlMemberships: (_, args: { externalIds?: string[] }) =>
-      args.externalIds
-        ? findByIds(args.externalIds, Membership)
-        : Membership.find(),
+    oParlMemberships: (
+      _,
+      args: { externalIds?: string[]; keyword?: string[] },
+    ) => {
+      const filter: FilterQuery<IMembershipSchema> = {};
+
+      if (args.keyword?.length) filter.keyword = { $all: args.keyword };
+
+      if (args.externalIds) filter.externalId = { $in: args.externalIds };
+
+      return Membership.find(filter);
+    },
   },
   OParlMembership: {
     person: (parent: IMembership) =>

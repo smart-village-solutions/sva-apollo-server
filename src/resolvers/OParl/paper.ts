@@ -1,19 +1,29 @@
+import { FilterQuery } from 'mongoose';
+
 import {
   Body,
   Consultation,
   File,
   IPaper,
+  IPaperSchema,
   Location,
   Organization,
   Paper,
   Person,
 } from '../../models';
-import { findByIds, getPaginatedEntriesByIds } from '../resolverHelpers';
+import { getPaginatedEntriesByIds } from '../resolverHelpers';
 
 export const paperResolvers = {
   Query: {
-    oParlPapers: (_, args: { externalIds?: string[] }) =>
-      args.externalIds ? findByIds(args.externalIds, Paper) : Paper.find(),
+    oParlPapers: (_, args: { externalIds?: string[]; keyword?: string[] }) => {
+      const filter: FilterQuery<IPaperSchema> = {};
+
+      if (args.keyword?.length) filter.keyword = { $all: args.keyword };
+
+      if (args.externalIds) filter.externalId = { $in: args.externalIds };
+
+      return Paper.find(filter);
+    },
   },
   OParlPaper: {
     body: (parent: IPaper) => Body.findOne({ externalId: parent.body }),

@@ -20,7 +20,7 @@ export interface IPaper extends OParlBase {
   consultation?: string[]; // array of externalIds of the consultation objects
 }
 
-interface IPaperSchema extends IPaper, Document {}
+export interface IPaperSchema extends IPaper, Document {}
 
 // this should always match the interface from above
 const PaperSchema = new Schema<IPaperSchema>(

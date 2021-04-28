@@ -18,7 +18,7 @@ export interface IAgendaItem extends OParlBase {
   end?: Date;
 }
 
-interface IAgendaItemSchema extends IAgendaItem, Document {}
+export interface IAgendaItemSchema extends IAgendaItem, Document {}
 
 // this should always match the interface from above
 const AgendaItemSchema = new Schema<IAgendaItemSchema>(

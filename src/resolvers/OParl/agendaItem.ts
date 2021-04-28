@@ -1,18 +1,29 @@
+import { FilterQuery } from 'mongoose';
+
 import {
   AgendaItem,
   Consultation,
   File,
   IAgendaItem,
+  IAgendaItemSchema,
   Meeting,
 } from '../../models';
-import { findByIds, getPaginatedEntriesByIds } from '../resolverHelpers';
+import { getPaginatedEntriesByIds } from '../resolverHelpers';
 
 export const agendaItemResolvers = {
   Query: {
-    oParlAgendaItems: (_, args: { externalIds?: string[] }) =>
-      args.externalIds
-        ? findByIds(args.externalIds, AgendaItem)
-        : AgendaItem.find(),
+    oParlAgendaItems: (
+      _,
+      args: { externalIds?: string[]; keyword?: string[] },
+    ) => {
+      const filter: FilterQuery<IAgendaItemSchema> = {};
+
+      if (args.keyword?.length) filter.keyword = { $all: args.keyword };
+
+      if (args.externalIds) filter.externalId = { $in: args.externalIds };
+
+      return AgendaItem.find(filter);
+    },
   },
   OParlAgendaItem: {
     meeting: (parent: IAgendaItem) =>

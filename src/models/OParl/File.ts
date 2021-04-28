@@ -22,7 +22,7 @@ export interface IFile extends OParlBase {
   paper?: string[]; // array of externalIds of the paper objects
 }
 
-interface IFileSchema extends IFile, Document {}
+export interface IFileSchema extends IFile, Document {}
 
 // this should always match the interface from above
 const FileSchema = new Schema<IFileSchema>(

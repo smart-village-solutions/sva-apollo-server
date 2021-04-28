@@ -6,7 +6,7 @@ const getPage = <T>(list: T[], pageSize = 10, offset?: number) => {
   return list.slice(actualOffset, actualOffset + pageSize);
 };
 
-export const findByIds = async (externalIds: string[], model: OParlModel) => {
+const findByIds = async (externalIds: string[], model: OParlModel) => {
   const result: OParlInterface[] = [];
   await Promise.all(
     externalIds.map(async (externalId) => {
