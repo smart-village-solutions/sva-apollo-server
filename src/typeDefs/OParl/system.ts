@@ -3,7 +3,10 @@ import { oParlBase } from './oParlBase';
 
 export const systemGQL = gql`
   extend type Query {
-    oParlSystems(externalIds: [String!]): [OParlSystem!]
+    oParlSystems(
+      externalIds: [String!]
+      keyword: [String!]
+    ): [OParlSystem!]
   }
 
   type OParlSystem {

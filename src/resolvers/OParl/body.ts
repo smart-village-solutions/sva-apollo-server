@@ -1,8 +1,11 @@
+import { FilterQuery } from 'mongoose';
+
 import {
   AgendaItem,
   Body,
   Consultation,
   IBody,
+  IBodySchema,
   LegislativeTerm,
   Location,
   Meeting,
@@ -11,12 +14,19 @@ import {
   Paper,
   Person,
 } from '../../models';
-import { findByIds, getPaginatedEntriesByIds } from '../resolverHelpers';
+import { getPaginatedEntriesByIds } from '../resolverHelpers';
 
 export const bodyResolvers = {
   Query: {
-    oParlBodies: (_, args: { externalIds?: string[] }) =>
-      args.externalIds ? findByIds(args.externalIds, Body) : Body.find(),
+    oParlBodies: (_, args: { externalIds?: string[]; keyword?: string[] }) => {
+      const filter: FilterQuery<IBodySchema> = {};
+
+      if (args.keyword?.length) filter.keyword = { $all: args.keyword };
+
+      if (args.externalIds) filter.externalId = { $in: args.externalIds };
+
+      return Body.find(filter);
+    },
   },
   OParlBody: {
     agendaItem: async (

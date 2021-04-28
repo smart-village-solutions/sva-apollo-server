@@ -4,7 +4,10 @@ import { oParlBase } from './oParlBase';
 
 export const agendaItemGQL = gql`
   extend type Query {
-    oParlAgendaItems(externalIds: [String!]): [OParlAgendaItem!]
+    oParlAgendaItems(
+      externalIds: [String!]
+      keyword: [String!]
+    ): [OParlAgendaItem!]
   }
 
   type OParlAgendaItem {

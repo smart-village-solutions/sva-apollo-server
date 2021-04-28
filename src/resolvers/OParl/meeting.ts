@@ -1,29 +1,42 @@
+import { FilterQuery } from 'mongoose';
+
 import {
   AgendaItem,
   File,
   IMeeting,
+  IMeetingSchema,
   Location,
   Meeting,
   Organization,
   Person,
 } from '../../models';
-import { findByIds, getPaginatedEntriesByIds } from '../resolverHelpers';
+import { getPaginatedEntriesByIds } from '../resolverHelpers';
 
 export const meetingResolvers = {
   Query: {
     oParlMeetings: (
       _,
-      args: { externalIds?: string[]; before?: string; after?: string },
+      args: {
+        externalIds?: string[];
+        before?: string;
+        after?: string;
+        keyword?: string[];
+      },
     ) => {
+      const filter: FilterQuery<IMeetingSchema> = {};
+
+      if (args.keyword?.length) filter.keyword = { $all: args.keyword };
+
       const dateFilter: { $gte?: Date; $lt?: Date } = {};
+
       if (args.after) dateFilter.$gte = new Date(args.after);
       if (args.before) dateFilter.$lt = new Date(args.before);
 
-      return args.externalIds
-        ? findByIds(args.externalIds, Meeting)
-        : Meeting.find({
-            start: dateFilter,
-          });
+      if (args.before || args.after) filter.start = dateFilter;
+
+      if (args.externalIds) filter.externalId = { $in: args.externalIds };
+
+      return Meeting.find(filter);
     },
   },
   OParlMeeting: {

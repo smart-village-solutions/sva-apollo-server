@@ -1,20 +1,31 @@
+import { FilterQuery } from 'mongoose';
+
 import {
   Body,
   ILocation,
+  ILocationSchema,
   Location,
   Meeting,
   Organization,
   Paper,
   Person,
 } from '../../models';
-import { findByIds, getPaginatedEntriesByIds } from '../resolverHelpers';
+import { getPaginatedEntriesByIds } from '../resolverHelpers';
 
 export const locationResolvers = {
   Query: {
-    oParlLocations: (_, args: { externalIds?: string[] }) =>
-      args.externalIds
-        ? findByIds(args.externalIds, Location)
-        : Location.find(),
+    oParlLocations: (
+      _,
+      args: { externalIds?: string[]; keyword?: string[] },
+    ) => {
+      const filter: FilterQuery<ILocationSchema> = {};
+
+      if (args.keyword?.length) filter.keyword = { $all: args.keyword };
+
+      if (args.externalIds) filter.externalId = { $in: args.externalIds };
+
+      return Location.find(filter);
+    },
   },
   OParlLocation: {
     bodies: async (

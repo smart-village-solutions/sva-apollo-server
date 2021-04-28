@@ -12,7 +12,7 @@ export interface IMembership extends OParlBase {
   onBehalfOf?: string; // externalId of the organization object
 }
 
-interface IMembershipSchema extends IMembership, Document {}
+export interface IMembershipSchema extends IMembership, Document {}
 
 // this should always match the interface from above
 const MembershipSchema = new Schema<IMembershipSchema>(

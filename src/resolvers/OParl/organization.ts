@@ -1,20 +1,30 @@
+import { FilterQuery } from 'mongoose';
+
 import {
   Body,
   Consultation,
   IOrganization,
+  IOrganizationSchema,
   Location,
   Meeting,
   Membership,
   Organization,
 } from '../../models';
-import { findByIds, getPaginatedEntriesByIds } from '../resolverHelpers';
+import { getPaginatedEntriesByIds } from '../resolverHelpers';
 
 export const organizationResolvers = {
   Query: {
-    oParlOrganizations: (_, args: { externalIds?: string[] }) =>
-      args.externalIds
-        ? findByIds(args.externalIds, Organization)
-        : Organization.find(),
+    oParlOrganizations: (
+      _,
+      args: { externalIds?: string[]; keyword?: string[] },
+    ) => {
+      const filter: FilterQuery<IOrganizationSchema> = {};
+
+      if (args.keyword?.length) filter.keyword = { $all: args.keyword };
+
+      if (args.externalIds) filter.externalId = { $in: args.externalIds };
+      return Organization.find(filter);
+    },
   },
   OParlOrganization: {
     body: (parent: IOrganization) => Body.findOne({ externalId: parent.body }),

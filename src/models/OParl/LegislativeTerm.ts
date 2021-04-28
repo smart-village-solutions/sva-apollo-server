@@ -9,7 +9,7 @@ export interface ILegislativeTerm extends OParlBase {
   endDate?: Date;
 }
 
-interface ILegislativeTermSchema extends ILegislativeTerm, Document {}
+export interface ILegislativeTermSchema extends ILegislativeTerm, Document {}
 
 // this should always match the interface from above
 const LegislativeTermSchema = new Schema<ILegislativeTermSchema>(

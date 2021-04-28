@@ -1,19 +1,30 @@
+import { FilterQuery } from 'mongoose';
+
 import {
   AgendaItem,
   Consultation,
   IConsultation,
+  IConsultationSchema,
   Meeting,
   Organization,
   Paper,
 } from '../../models';
-import { findByIds, getPaginatedEntriesByIds } from '../resolverHelpers';
+import { getPaginatedEntriesByIds } from '../resolverHelpers';
 
 export const consultationResolvers = {
   Query: {
-    oParlConsultations: (_, args: { externalIds?: string[] }) =>
-      args.externalIds
-        ? findByIds(args.externalIds, Consultation)
-        : Consultation.find(),
+    oParlConsultations: (
+      _,
+      args: { externalIds?: string[]; keyword?: string[] },
+    ) => {
+      const filter: FilterQuery<IConsultationSchema> = {};
+
+      if (args.keyword?.length) filter.keyword = { $all: args.keyword };
+
+      if (args.externalIds) filter.externalId = { $in: args.externalIds };
+
+      return Consultation.find(filter);
+    },
   },
   OParlConsultation: {
     paper: (parent: IConsultation) =>

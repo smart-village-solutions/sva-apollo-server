@@ -16,7 +16,7 @@ export interface ISystem extends OParlBase {
   product?: string;
 }
 
-interface ISystemSchema extends ISystem, Document {}
+export interface ISystemSchema extends ISystem, Document {}
 
 // this should always match the interface from above
 const SystemSchema = new Schema<ISystemSchema>(

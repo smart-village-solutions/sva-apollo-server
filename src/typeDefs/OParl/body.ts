@@ -4,7 +4,10 @@ import { oParlBase } from './oParlBase';
 
 export const bodyGQL = gql`
   extend type Query {
-    oParlBodies(externalIds: [String!]): [OParlBody!]
+    oParlBodies(
+      externalIds: [String!]
+      keyword: [String!]
+    ): [OParlBody!]
   }
 
   type OParlBody {

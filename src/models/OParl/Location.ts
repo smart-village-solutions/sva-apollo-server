@@ -27,7 +27,7 @@ export interface ILocation extends OParlBase {
   persons?: string[]; // array of externalIds of the person objects; OParl 1.1 only
 }
 
-interface ILocationSchema extends ILocation, Document {}
+export interface ILocationSchema extends ILocation, Document {}
 
 // this should always match the interface from above
 const LocationSchema = new Schema<ILocationSchema>(

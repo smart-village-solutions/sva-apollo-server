@@ -18,7 +18,7 @@ export interface IMeeting extends OParlBase {
   agendaItem?: string[]; // array of externalIds of the agenda item objects
 }
 
-interface IMeetingSchema extends IMeeting, Document {}
+export interface IMeetingSchema extends IMeeting, Document {}
 
 // this should always match the interface from above
 const MeetingSchema = new Schema<IMeetingSchema>(

@@ -4,7 +4,10 @@ import { oParlBase } from './oParlBase';
 
 export const locationGQL = gql`
   extend type Query {
-    oParlLocations(externalIds: [String!]): [OParlLocation!]
+    oParlLocations(
+      externalIds: [String!]
+      keyword: [String!]
+    ): [OParlLocation!]
   }
 
   type OParlLocation {
