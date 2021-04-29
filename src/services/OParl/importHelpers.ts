@@ -1,7 +1,10 @@
 import { fetch } from 'apollo-env';
 import { isArray, isString } from 'lodash';
+
+import { isStringArray } from '../../helpers';
 import { OParlModel } from '../../models';
 import { ImportQueue, ImportQueueEntry, ImportType } from './ImportTypes';
+import { updateKeywords } from './keywords';
 
 // we expect the input to be either a json object already, or a reference to a json object
 // if the value is a string we interpret it as a reference and fetch the corresponding json
@@ -58,6 +61,10 @@ export const updateOrCreateEntry = async (
       );
     }
   });
+
+  if (isStringArray(json.keyword) && json.keyword.length) {
+    await updateKeywords(model, json.keyword);
+  }
 
   return entry.save();
 };

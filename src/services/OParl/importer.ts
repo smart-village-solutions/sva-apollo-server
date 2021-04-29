@@ -24,29 +24,6 @@ const preferFullEntry = (a: [ImportQueueEntry, ImportType]) => {
   return !isString(a[0]);
 };
 
-// add functionality for incremental updates here, once performance becomes an issue
-export const importOParl = async (
-  entryUrl: string,
-  entryType = ImportType.System,
-) => {
-  // use a queue that saves the importer function which should be used with the corresponding url
-  const importQueue: ImportQueue = new UniqueQueue<
-    [ImportQueueEntry, ImportType]
-  >(getId, preferFullEntry, [[entryUrl, entryType]]);
-
-  let next = importQueue.next();
-
-  while (next) {
-    const [data, type] = next;
-
-    await getImporterFunction(type)?.(data, importQueue);
-
-    next = importQueue.next();
-  }
-
-  return true;
-};
-
 const getImporterFunction = (type: ImportType) => {
   switch (type) {
     case ImportType.AgendaItem:
@@ -74,4 +51,27 @@ const getImporterFunction = (type: ImportType) => {
     case ImportType.System:
       return importSystem;
   }
+};
+
+// add functionality for incremental updates here, once performance becomes an issue
+export const importOParl = async (
+  entryUrl: string,
+  entryType = ImportType.System,
+) => {
+  // use a queue that saves the importer function which should be used with the corresponding url
+  const importQueue: ImportQueue = new UniqueQueue<
+    [ImportQueueEntry, ImportType]
+  >(getId, preferFullEntry, [[entryUrl, entryType]]);
+
+  let next = importQueue.next();
+
+  while (next) {
+    const [data, type] = next;
+
+    await getImporterFunction(type)?.(data, importQueue);
+
+    next = importQueue.next();
+  }
+
+  return true;
 };

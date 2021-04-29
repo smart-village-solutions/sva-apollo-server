@@ -4,6 +4,7 @@ export * from './AgendaItem';
 export * from './Body';
 export * from './Consultation';
 export * from './File';
+export * from './Keywords';
 export * from './LegislativeTerm';
 export * from './Location';
 export * from './Meeting';
