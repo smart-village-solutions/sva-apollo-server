@@ -1,7 +1,6 @@
 import { MongoMemoryServer } from 'mongodb-memory-server';
 import mongoose from 'mongoose';
-
-import { createRoadwork, findRoadwork } from './Roadwork';
+import { createRoadwork, findRoadwork } from './roadwork';
 
 const mongod = new MongoMemoryServer();
 

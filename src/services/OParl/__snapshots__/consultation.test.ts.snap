@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`importing a consultation imports properly for 1.0 1`] = `
+Object {
+  "__v": 0,
+  "externalId": "https://www.muenchen-transparent.de/oparl/v1.0/consultation/48823",
+  "keyword": Array [],
+  "meeting": "https://www.muenchen-transparent.de/oparl/v1.0/meeting/5703",
+  "organization": Array [
+    "https://www.muenchen-transparent.de/oparl/v1.0/organization/gremium/5",
+  ],
+  "type": "https://schema.oparl.org/1.0/Consultation",
+}
+`;
+
+exports[`importing a consultation imports properly for 1.1 1`] = `
+Object {
+  "__v": 0,
+  "agendaItem": "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/agendaitem/1398",
+  "created": 2015-09-11T08:24:22.000Z,
+  "externalId": "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/consultation/78",
+  "keyword": Array [],
+  "meeting": "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/meeting/466",
+  "modified": 2015-09-11T08:24:22.000Z,
+  "organization": Array [
+    "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/organization/1-2",
+  ],
+  "paper": "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/paper/65",
+  "type": "https://schema.oparl.org/1.1/Consultation",
+}
+`;

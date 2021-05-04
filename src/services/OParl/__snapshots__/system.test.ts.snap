@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`importing a system imports properly for 1.0 1`] = `
+Object {
+  "__v": 0,
+  "body": Array [
+    "https://www.lwl-pch.sitzung-online.de/oi/oparl/1.0/bodies.asp?id=2",
+  ],
+  "contactEmail": "andreas.schreiber@kreis-lup.de",
+  "contactName": "Andreas Schreiber",
+  "externalId": "https://www.lwl-pch.sitzung-online.de/oi/oparl/1.0/system.asp",
+  "keyword": Array [],
+  "license": "http://opendatahandbook.org/guide/de/how-to-open-up-data/",
+  "name": "Landkreis LUP",
+  "oparlVersion": "https://schema.oparl.org/1.0/",
+  "otherOparlVersions": Array [],
+  "product": "http://cc-egov.de/produkte/allris",
+  "type": "https://schema.oparl.org/1.0/System",
+  "vendor": "http://cc-egov.de/",
+  "website": "https://www.lwl-pch.sitzung-online.de/bi/",
+}
+`;
+
+exports[`importing a system imports properly for 1.1 1`] = `
+Object {
+  "__v": 0,
+  "body": Array [
+    "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1",
+  ],
+  "contactEmail": "info@sternberg24.de",
+  "contactName": "STERNBERG Software GmbH & Co. KG",
+  "externalId": "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/system",
+  "keyword": Array [],
+  "name": "SD.NET RIM",
+  "oparlVersion": "https://schema.oparl.org/1.1/",
+  "otherOparlVersions": Array [],
+  "product": "https://www.sitzungsdienst.net/produkte/gremieninformationssystem/oparl-schnittstelle/",
+  "type": "https://schema.oparl.org/1.1/System",
+  "vendor": "https://www.sitzungsdienst.net/",
+  "website": "https://www.ratsinfomanagement.net/",
+}
+`;

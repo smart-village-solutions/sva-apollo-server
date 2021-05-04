@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`importing a legislative term imports properly for 1.0 1`] = `
+Object {
+  "__v": 0,
+  "externalId": "https://www.muenchen-transparent.de/oparl/v1.0/legislativeterm/0",
+  "keyword": Array [],
+  "name": "Unbekannt",
+  "type": "https://schema.oparl.org/1.0/LegislativeTerm",
+}
+`;
+
+exports[`importing a legislative term imports properly for 1.1 1`] = `
+Object {
+  "__v": 0,
+  "body": "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1",
+  "endDate": 2020-06-24T00:00:00.000Z,
+  "externalId": "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/legislativeterm/468",
+  "keyword": Array [
+    "Legislaturperioden",
+    "Legislaturperiode 2014-2020",
+  ],
+  "name": "Legislaturperiode 2014-2020",
+  "startDate": 2014-06-24T00:00:00.000Z,
+  "type": "https://schema.oparl.org/1.1/LegislativeTerm",
+}
+`;

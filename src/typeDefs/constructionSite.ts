@@ -1,10 +1,6 @@
 import { gql } from 'apollo-server-core';
 
-export const typeDefs = gql`
-  type Location {
-    lat: String
-    lon: String
-  }
+export const constructionSiteGQL = gql`
   "Eine Baustelle"
   type ConstructionSite {
     "Art der Baustelle"
@@ -17,7 +13,7 @@ export const typeDefs = gql`
     direction: String
     "(Voraussichtliches) Ende der Baustelle"
     endDate: String
-    "URL einer zugöhrigen Bilddatei"
+    "URL einer zugehörigen Bilddatei"
     imageUri: String
     "Geo-Koordinaten der Baustellen"
     location: Location
@@ -31,18 +27,11 @@ export const typeDefs = gql`
     title: String!
   }
 
-  type Roadwork {
-    id: ID!
-    name: String!
-    description: String
-  }
-
-  type Query {
+  extend type Query {
     constructionSites: [ConstructionSite!]!
-    roadworks: [Roadwork!]!
   }
 
-  type Mutation {
+  extend type Mutation {
     createConstructionSite(
       category: String
       cause: String
@@ -57,9 +46,5 @@ export const typeDefs = gql`
       startDate: String!
       title: String!
     ): ConstructionSite!
-
-    createRoadwork(name: String!, description: String): Roadwork!
-    deleteRoadwork(id: ID!): Roadwork!
-    updateRoadwork(id: ID!, name: String, description: String): Roadwork!
   }
 `;

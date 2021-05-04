@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`importing a person imports properly for 1.0 1`] = `
+Object {
+  "__v": 0,
+  "created": 2011-09-04T10:00:00.000Z,
+  "email": Array [],
+  "externalId": "https://www.lwl-pch.sitzung-online.de/oi/oparl/1.0/persons.asp?typ=sb&id=442",
+  "familyName": "Hertel",
+  "givenName": "Marita",
+  "keyword": Array [],
+  "membership": Array [],
+  "modified": 2019-05-22T11:38:05.000Z,
+  "name": "Marita Hertel",
+  "phone": Array [],
+  "status": Array [],
+  "title": Array [],
+  "type": "https://schema.oparl.org/1.0/Person",
+}
+`;
+
+exports[`importing a person imports properly for 1.1 1`] = `
+Object {
+  "__v": 0,
+  "body": "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1",
+  "created": 2015-03-19T14:14:24.000Z,
+  "email": Array [],
+  "externalId": "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/person/32",
+  "familyName": "Mittag",
+  "formOfAddress": "Frau",
+  "gender": "female",
+  "givenName": "Susanne",
+  "keyword": Array [
+    "Mittag",
+  ],
+  "location": "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/location/1-74",
+  "membership": Array [
+    "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/membership/3-1-1-32",
+    "https://sdnetrim.kdvz-frechen.de/rim4883/webservice/oparl/v1.1/body/1/membership/4-1-2-32",
+  ],
+  "modified": 2017-08-07T08:40:14.000Z,
+  "name": "Frau Bürgermeisterin Susanne Mittag",
+  "phone": Array [
+    "05248-508-21",
+  ],
+  "status": Array [],
+  "title": Array [],
+  "type": "https://schema.oparl.org/1.1/Person",
+  "web": "https://sdnetrim.kdvz-frechen.de/rim4883/personen/?__=UGhVM0hpd2NXNFdFcExjZey2HPfvtfLULOctTjePeSg",
+}
+`;
