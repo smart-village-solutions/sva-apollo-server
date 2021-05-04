@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 
 import { resolvers } from './resolvers';
 import { typeDefs } from './typeDefs';
+import { databaseLocation, mongooseOptions } from '../config';
 
 const startServer = async () => {
   const app = express();
@@ -16,11 +17,7 @@ const startServer = async () => {
 
   server.applyMiddleware({ app });
 
-  await mongoose.connect('mongodb://localhost:27017/test', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    keepAlive: true,
-  });
+  await mongoose.connect(databaseLocation, mongooseOptions);
 
   app.listen({ port: 4000 }, () =>
     console.log(
