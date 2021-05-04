@@ -4,7 +4,8 @@
   "description": "Apollo-based GraphQL for the Smart Village App (https://smart-village.app)",
   "main": "index.ts",
   "scripts": {
-    "start": "nodemon",
+    "start": "ts-node ./src/index.ts",
+    "dev": "nodemon",
     "lint": "eslint ./src/**/* --ext .ts",
     "test": "jest --runInBand --silent",
     "service:oparl:clear": "ts-node ./src/services/OParl/clear.ts",
@@ -29,7 +30,6 @@
     "mongodb-memory-server": "^6.9.6",
     "nodemon": "^2.0.7",
     "prettier": "^2.2.1",
-    "ts-node": "^9.1.1",
     "typescript": "^4.2.3"
   },
   "dependencies": {
@@ -38,6 +38,7 @@
     "graphql": "^15.5.0",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
-    "mongoose": "^5.11.16"
+    "mongoose": "^5.11.16",
+    "ts-node": "^9.1.1"
   }
 }
