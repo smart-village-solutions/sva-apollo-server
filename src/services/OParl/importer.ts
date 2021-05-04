@@ -1,5 +1,6 @@
 import { isString } from 'lodash';
 
+import { Keywords } from '../../models';
 import { UniqueQueue } from '../../UniqueQueue';
 import { importAgendaItem } from './agendaItem';
 import { importBody } from './body';
@@ -58,6 +59,8 @@ export const importOParl = async (
   entryUrl: string,
   entryType = ImportType.System,
 ) => {
+  await Keywords.deleteMany();
+
   // use a queue that saves the importer function which should be used with the corresponding url
   const importQueue: ImportQueue = new UniqueQueue<
     [ImportQueueEntry, ImportType]

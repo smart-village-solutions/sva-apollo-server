@@ -3,6 +3,7 @@ import { optionalStringArray, requiredStringArray } from '../modelHelpers';
 import { OParlBase, oParlBaseSchema } from './OParlBase';
 
 export interface IBody extends OParlBase {
+  system?: string;
   name: string;
   shortName?: string;
   website?: string;
@@ -42,6 +43,7 @@ export interface IBodySchema extends IBody, Document {}
 // this should always match the interface from above
 const BodySchema = new Schema<IBodySchema>(
   Object.assign(oParlBaseSchema(), {
+    system: String,
     name: { type: String, required: true },
     shortName: String,
     website: String,
@@ -50,7 +52,7 @@ const BodySchema = new Schema<IBodySchema>(
     oparlSince: Date,
     ags: String,
     rgs: String,
-    equivalent: [String],
+    equivalent: optionalStringArray,
     contactEmail: String,
     contactName: String,
     organization: requiredStringArray,

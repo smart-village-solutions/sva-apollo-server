@@ -20,7 +20,7 @@ export const fetchPaginatedOParlList = async (
     formatCreatedUntil(createdUntil),
   );
 
-  const result: string[] = [];
+  const result: unknown[] = [];
 
   while (next) {
     try {

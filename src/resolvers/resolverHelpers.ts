@@ -1,9 +1,12 @@
 import { OParlInterface, OParlModel } from '../models';
 
-const getPage = <T>(list: T[], pageSize = 10, offset?: number) => {
+const getPage = <T>(list: T[], pageSize?: number, offset?: number) => {
   const actualOffset = offset ?? 0;
 
-  return list.slice(actualOffset, actualOffset + pageSize);
+  return list.slice(
+    actualOffset,
+    pageSize ? actualOffset + pageSize : undefined,
+  );
 };
 
 const findByIds = async (externalIds: string[], model: OParlModel) => {

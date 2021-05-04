@@ -1,8 +1,8 @@
-const completed = { completed: true } as const;
+const completedObject = { completed: true } as const;
 
 export class UniqueQueue<T> {
   private queueArray: string[];
-  private completed: number;
+  private completedCount: number;
   // set map to false when it is already completed
   private uniqueMap: Map<
     string,
@@ -16,7 +16,7 @@ export class UniqueQueue<T> {
 
     if (old?.completed) return;
 
-    if (!old || this.prefer?.(entry, old?.value)) {
+    if (!old || this.prefer?.(entry, old.value)) {
       this.uniqueMap.set(id, { value: entry, completed: false });
     }
     if (!old) this.queueArray.push(id);
@@ -38,7 +38,7 @@ export class UniqueQueue<T> {
     this.prefer = preferenceFunction;
     this.queueArray = [];
     initialValues?.forEach(this.addSingleEntry);
-    this.completed = 0;
+    this.completedCount = 0;
   }
 
   // add new entries uniquely to the queued list, if they are not completed already
@@ -48,21 +48,22 @@ export class UniqueQueue<T> {
 
   getLength = () => ({
     queued: this.queueArray.length,
-    completed: this.completed,
+    completed: this.completedCount,
   });
 
   next = (): T | undefined => {
     const id = this.queueArray.pop();
 
-    console.log(this.getLength(), id);
-
     if (!id) return;
 
     const entry = this.uniqueMap.get(id);
 
-    if (entry && !entry?.completed) {
-      this.uniqueMap.set(id, completed);
-      this.completed++;
+    if (entry && !entry.completed) {
+      this.uniqueMap.set(id, completedObject);
+      this.completedCount++;
+
+      console.log(this.getLength(), id);
+
       return entry.value;
     }
   };
