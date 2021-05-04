@@ -4,7 +4,7 @@ import { OParlBase, oParlBaseSchema } from './OParlBase';
 
 export interface ILocation extends OParlBase {
   description?: string;
-  geojson?: string; // TODO: string representation of the GeoJSON might not be what we need/want
+  geojson?: string; // string representation of the GeoJSON might not be what we need/want
   streetAddress?: string;
   room?: string;
   postalCode?: string;

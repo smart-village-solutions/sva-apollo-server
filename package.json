@@ -7,6 +7,7 @@
     "start": "nodemon",
     "lint": "eslint ./src/**/* --ext .ts",
     "test": "jest --runInBand --silent",
+    "service:oparl:clear": "ts-node ./src/services/OParl/clear.ts",
     "service:oparl:import": "ts-node ./src/services/OParl/run.ts"
   },
   "keywords": [],
