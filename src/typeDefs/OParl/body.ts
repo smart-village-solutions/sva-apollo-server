@@ -11,6 +11,7 @@ export const bodyGQL = gql`
   }
 
   type OParlBody {
+    system: OParlSystem
     name: String!
     shortName: String
     website: String

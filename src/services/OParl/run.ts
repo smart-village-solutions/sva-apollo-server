@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { databaseLocation, mongooseOptions } from '../../../config';
+import { databaseLocation, importUrl, mongooseOptions } from '../../../config';
 import { importOParl } from './importer';
 
 // example usage
@@ -7,7 +7,7 @@ import { importOParl } from './importer';
 const startImporter = async () => {
   await mongoose.connect(databaseLocation, mongooseOptions);
 
-  const entryUrl = process.argv[2];
+  const entryUrl = process.argv[2]?.length ? process.argv[2] : importUrl;
 
   if (entryUrl?.length) {
     await importOParl(entryUrl);
