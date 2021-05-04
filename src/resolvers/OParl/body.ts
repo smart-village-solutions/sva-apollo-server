@@ -13,6 +13,7 @@ import {
   Organization,
   Paper,
   Person,
+  System,
 } from '../../models';
 import { getPaginatedEntriesByIds } from '../resolverHelpers';
 
@@ -135,5 +136,6 @@ export const bodyResolvers = {
         args.offset,
         args.pageSize,
       ),
+    system: (parent: IBody) => System.findOne({ externalId: parent.system }),
   },
 };
