@@ -1,3 +1,4 @@
+import { AgendaItem, IAgendaItem } from './AgendaItem';
 import { Body, IBody } from './Body';
 import { Consultation, IConsultation } from './Consultation';
 import { File, IFile } from './File';
@@ -11,6 +12,7 @@ import { IPerson, Person } from './Person';
 import { ISystem, System } from './System';
 
 export type OParlModel =
+  | typeof AgendaItem
   | typeof Body
   | typeof Consultation
   | typeof File
@@ -24,6 +26,7 @@ export type OParlModel =
   | typeof System;
 
 export type OParlInterface =
+  | IAgendaItem
   | IBody
   | IConsultation
   | IFile

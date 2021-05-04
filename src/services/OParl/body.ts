@@ -20,6 +20,10 @@ export const importBody = async (
     addToQueue.push([json.legislativeTerm, ImportType.LegislativeTerm]);
   }
 
+  if (json.system) {
+    addToQueue.push([json.system, ImportType.System]);
+  }
+
   if (json.meeting) {
     json.meeting = await fetchPaginatedOParlList(
       json.meeting,
