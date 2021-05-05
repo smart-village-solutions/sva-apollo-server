@@ -12,7 +12,12 @@ export const membershipResolvers = {
   Query: {
     oParlMemberships: (
       _,
-      args: { externalIds?: string[]; keyword?: string[] },
+      args: {
+        externalIds?: string[];
+        keyword?: string[];
+        offset?: number;
+        pageSize?: number;
+      },
     ) => {
       const filter: FilterQuery<IMembershipSchema> = {};
 

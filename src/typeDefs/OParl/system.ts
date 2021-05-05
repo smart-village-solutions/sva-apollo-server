@@ -6,6 +6,8 @@ export const systemGQL = gql`
     oParlSystems(
       externalIds: [String!]
       keyword: [String!]
+      offset: Int
+      pageSize: Int
     ): [OParlSystem!]
   }
 

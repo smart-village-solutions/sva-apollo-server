@@ -5,14 +5,25 @@ import { getPaginatedEntriesByIds } from '../resolverHelpers';
 
 export const systemResolvers = {
   Query: {
-    oParlSystems: (_, args: { externalIds?: string[]; keyword?: string[] }) => {
+    oParlSystems: (
+      _,
+      args: {
+        externalIds?: string[];
+        keyword?: string[];
+        offset?: number;
+        pageSize?: number;
+      },
+    ) => {
       const filter: FilterQuery<ISystemSchema> = {};
 
       if (args.keyword?.length) filter.keyword = { $all: args.keyword };
 
       if (args.externalIds) filter.externalId = { $in: args.externalIds };
 
-      return System.find(filter);
+      return System.find(filter, undefined, {
+        limit: args.pageSize,
+        skip: args.offset,
+      });
     },
   },
   OParlSystem: {

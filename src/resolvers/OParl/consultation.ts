@@ -15,7 +15,12 @@ export const consultationResolvers = {
   Query: {
     oParlConsultations: (
       _,
-      args: { externalIds?: string[]; keyword?: string[] },
+      args: {
+        externalIds?: string[];
+        keyword?: string[];
+        offset?: number;
+        pageSize?: number;
+      },
     ) => {
       const filter: FilterQuery<IConsultationSchema> = {};
 
@@ -23,7 +28,10 @@ export const consultationResolvers = {
 
       if (args.externalIds) filter.externalId = { $in: args.externalIds };
 
-      return Consultation.find(filter);
+      return Consultation.find(filter, undefined, {
+        limit: args.pageSize,
+        skip: args.offset,
+      });
     },
   },
   OParlConsultation: {

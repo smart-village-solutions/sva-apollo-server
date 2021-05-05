@@ -7,6 +7,8 @@ export const membershipGQL = gql`
     oParlMemberships(
       externalIds: [String!]
       keyword: [String!]
+      offset: Int
+      pageSize: Int
     ): [OParlMembership!]
   }
 

@@ -7,6 +7,8 @@ export const locationGQL = gql`
     oParlLocations(
       externalIds: [String!]
       keyword: [String!]
+      offset: Int
+      pageSize: Int
     ): [OParlLocation!]
   }
 

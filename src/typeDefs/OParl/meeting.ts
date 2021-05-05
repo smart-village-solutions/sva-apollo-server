@@ -9,6 +9,8 @@ export const meetingGQL = gql`
       before: String
       externalIds: [String!]
       keyword: [String!]
+      offset: Int
+      pageSize: Int
     ): [OParlMeeting!]
   }
 

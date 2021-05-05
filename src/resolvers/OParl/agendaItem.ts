@@ -14,7 +14,12 @@ export const agendaItemResolvers = {
   Query: {
     oParlAgendaItems: (
       _,
-      args: { externalIds?: string[]; keyword?: string[] },
+      args: {
+        externalIds?: string[];
+        keyword?: string[];
+        offset?: number;
+        pageSize?: number;
+      },
     ) => {
       const filter: FilterQuery<IAgendaItemSchema> = {};
 
@@ -22,7 +27,10 @@ export const agendaItemResolvers = {
 
       if (args.externalIds) filter.externalId = { $in: args.externalIds };
 
-      return AgendaItem.find(filter);
+      return AgendaItem.find(filter, undefined, {
+        limit: args.pageSize,
+        skip: args.offset,
+      });
     },
   },
   OParlAgendaItem: {

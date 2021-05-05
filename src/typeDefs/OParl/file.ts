@@ -7,6 +7,8 @@ export const fileGQL = gql`
     oParlFiles(
       externalIds: [String!]
       keyword: [String!]
+      offset: Int
+      pageSize: Int
     ): [OParlFile!]
   }
 

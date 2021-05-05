@@ -15,14 +15,25 @@ import { getPaginatedEntriesByIds } from '../resolverHelpers';
 
 export const paperResolvers = {
   Query: {
-    oParlPapers: (_, args: { externalIds?: string[]; keyword?: string[] }) => {
+    oParlPapers: (
+      _,
+      args: {
+        externalIds?: string[];
+        keyword?: string[];
+        offset?: number;
+        pageSize?: number;
+      },
+    ) => {
       const filter: FilterQuery<IPaperSchema> = {};
 
       if (args.keyword?.length) filter.keyword = { $all: args.keyword };
 
       if (args.externalIds) filter.externalId = { $in: args.externalIds };
 
-      return Paper.find(filter);
+      return Paper.find(filter, undefined, {
+        limit: args.pageSize,
+        skip: args.offset,
+      });
     },
   },
   OParlPaper: {

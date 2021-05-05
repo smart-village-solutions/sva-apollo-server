@@ -7,6 +7,8 @@ export const personGQL = gql`
     oParlPersons(
       externalIds: [String!]
       keyword: [String!]
+      offset: Int
+      pageSize: Int
     ): [OParlPerson!]
   }
 

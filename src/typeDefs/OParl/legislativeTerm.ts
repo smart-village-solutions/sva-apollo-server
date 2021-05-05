@@ -7,6 +7,8 @@ export const legislativeTermGQL = gql`
     oParlLegislativeTerms(
       externalIds: [String!]
       keyword: [String!]
+      offset: Int
+      pageSize: Int
     ): [OParlLegislativeTerm!]
   }
 

@@ -7,6 +7,8 @@ export const bodyGQL = gql`
     oParlBodies(
       externalIds: [String!]
       keyword: [String!]
+      offset: Int
+      pageSize: Int
     ): [OParlBody!]
   }
 
