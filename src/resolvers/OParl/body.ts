@@ -19,14 +19,25 @@ import { getPaginatedEntriesByIds } from '../resolverHelpers';
 
 export const bodyResolvers = {
   Query: {
-    oParlBodies: (_, args: { externalIds?: string[]; keyword?: string[] }) => {
+    oParlBodies: (
+      _,
+      args: {
+        externalIds?: string[];
+        keyword?: string[];
+        offset?: number;
+        pageSize?: number;
+      },
+    ) => {
       const filter: FilterQuery<IBodySchema> = {};
 
       if (args.keyword?.length) filter.keyword = { $all: args.keyword };
 
       if (args.externalIds) filter.externalId = { $in: args.externalIds };
 
-      return Body.find(filter);
+      return Body.find(filter, undefined, {
+        limit: args.pageSize,
+        skip: args.offset,
+      });
     },
   },
   OParlBody: {

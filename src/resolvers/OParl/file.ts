@@ -12,14 +12,25 @@ import { getPaginatedEntriesByIds } from '../resolverHelpers';
 
 export const fileResolvers = {
   Query: {
-    oParlFiles: (_, args: { externalIds?: string[]; keyword?: string[] }) => {
+    oParlFiles: (
+      _,
+      args: {
+        externalIds?: string[];
+        keyword?: string[];
+        offset?: number;
+        pageSize?: number;
+      },
+    ) => {
       const filter: FilterQuery<IFileSchema> = {};
 
       if (args.keyword?.length) filter.keyword = { $all: args.keyword };
 
       if (args.externalIds) filter.externalId = { $in: args.externalIds };
 
-      return File.find(filter);
+      return File.find(filter, undefined, {
+        limit: args.pageSize,
+        skip: args.offset,
+      });
     },
   },
   OParlFile: {

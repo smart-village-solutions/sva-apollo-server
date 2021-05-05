@@ -7,6 +7,8 @@ export const organizationGQL = gql`
     oParlOrganizations(
       externalIds: [String!]
       keyword: [String!]
+      offset: Int
+      pageSize: Int
     ): [OParlOrganization!]
   }
 

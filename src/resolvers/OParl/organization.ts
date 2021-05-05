@@ -16,14 +16,22 @@ export const organizationResolvers = {
   Query: {
     oParlOrganizations: (
       _,
-      args: { externalIds?: string[]; keyword?: string[] },
+      args: {
+        externalIds?: string[];
+        keyword?: string[];
+        offset?: number;
+        pageSize?: number;
+      },
     ) => {
       const filter: FilterQuery<IOrganizationSchema> = {};
 
       if (args.keyword?.length) filter.keyword = { $all: args.keyword };
 
       if (args.externalIds) filter.externalId = { $in: args.externalIds };
-      return Organization.find(filter);
+      return Organization.find(filter, undefined, {
+        limit: args.pageSize,
+        skip: args.offset,
+      });
     },
   },
   OParlOrganization: {

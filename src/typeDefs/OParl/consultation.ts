@@ -7,6 +7,8 @@ export const consultationGQL = gql`
     oParlConsultations(
       externalIds: [String!]
       keyword: [String!]
+      offset: Int
+      pageSize: Int
     ): [OParlConsultation!]
   }
 

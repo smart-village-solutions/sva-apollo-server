@@ -7,6 +7,8 @@ export const paperGQL = gql`
     oParlPapers(
       externalIds: [String!]
       keyword: [String!]
+      offset: Int
+      pageSize: Int
     ): [OParlPaper!]
   }
 

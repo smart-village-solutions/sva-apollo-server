@@ -16,7 +16,12 @@ export const locationResolvers = {
   Query: {
     oParlLocations: (
       _,
-      args: { externalIds?: string[]; keyword?: string[] },
+      args: {
+        externalIds?: string[];
+        keyword?: string[];
+        offset?: number;
+        pageSize?: number;
+      },
     ) => {
       const filter: FilterQuery<ILocationSchema> = {};
 
@@ -24,7 +29,10 @@ export const locationResolvers = {
 
       if (args.externalIds) filter.externalId = { $in: args.externalIds };
 
-      return Location.find(filter);
+      return Location.find(filter, undefined, {
+        limit: args.pageSize,
+        skip: args.offset,
+      });
     },
   },
   OParlLocation: {

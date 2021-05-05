@@ -7,6 +7,8 @@ export const agendaItemGQL = gql`
     oParlAgendaItems(
       externalIds: [String!]
       keyword: [String!]
+      offset: Int
+      pageSize: Int
     ): [OParlAgendaItem!]
   }
 

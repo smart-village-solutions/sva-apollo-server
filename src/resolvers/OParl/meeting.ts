@@ -21,6 +21,8 @@ export const meetingResolvers = {
         before?: string;
         after?: string;
         keyword?: string[];
+        offset?: number;
+        pageSize?: number;
       },
     ) => {
       const filter: FilterQuery<IMeetingSchema> = {};
@@ -36,7 +38,10 @@ export const meetingResolvers = {
 
       if (args.externalIds) filter.externalId = { $in: args.externalIds };
 
-      return Meeting.find(filter);
+      return Meeting.find(filter, undefined, {
+        limit: args.pageSize,
+        skip: args.offset,
+      });
     },
   },
   OParlMeeting: {

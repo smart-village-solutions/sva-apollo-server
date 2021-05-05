@@ -11,7 +11,12 @@ export const legislativeTermResolvers = {
   Query: {
     oParlLegislativeTerms: (
       _,
-      args: { externalIds?: string[]; keyword?: string[] },
+      args: {
+        externalIds?: string[];
+        keyword?: string[];
+        offset?: number;
+        pageSize?: number;
+      },
     ) => {
       const filter: FilterQuery<ILegislativeTermSchema> = {};
 
@@ -19,7 +24,10 @@ export const legislativeTermResolvers = {
 
       if (args.externalIds) filter.externalId = { $in: args.externalIds };
 
-      return LegislativeTerm.find(filter);
+      return LegislativeTerm.find(filter, undefined, {
+        limit: args.pageSize,
+        skip: args.offset,
+      });
     },
   },
   OParlLegislativeTerm: {
