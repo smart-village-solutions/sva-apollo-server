@@ -51,14 +51,16 @@ export const updateOrCreateEntry = async (
   await entry.validate();
 
   // add list of oparl objects to import queue after the whole entry is validated
-  addToQueue?.forEach((list) => {
-    if (isArray(list[0])) {
+  addToQueue?.forEach((newEntry) => {
+    if (isArray(newEntry[0])) {
       queue?.add(
-        ...list[0].map(
+        ...newEntry[0].map(
           (arrayEntry) =>
-            [arrayEntry, list[1]] as [ImportQueueEntry, ImportType],
+            [arrayEntry, newEntry[1]] as [ImportQueueEntry, ImportType],
         ),
       );
+    } else {
+      queue?.add([newEntry[0], newEntry[1]]);
     }
   });
 
