@@ -11,12 +11,12 @@ const getPage = <T>(list: T[], pageSize?: number, offset?: number) => {
 
 const findByIds = async (externalIds: string[], model: OParlModel) => {
   const result: OParlInterface[] = [];
-  await Promise.all(
-    externalIds.map(async (externalId) => {
-      const org = await model.findOne({ externalId });
-      if (org) result.push(org);
-    }),
-  );
+
+  for (const externalId of externalIds) {
+    const org = await model.findOne({ externalId });
+    if (org) result.push(org);
+  }
+
   return result;
 };
 
